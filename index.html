@@ -1,28 +1,1323 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Melody Naorem | Frontend Developer Portfolio</title>
-    <meta name="description" content="Frontend developer with 4+ years of experience building responsive, user-friendly web interfaces. Specializing in React, TypeScript, and Figma-to-code conversion." />
-    <meta name="author" content="Melody Naorem" />
-    <meta name="keywords" content="Frontend Developer, UI Developer, React Developer, Web Developer, Bengaluru, Portfolio" />
+    <title>Melody Naorem | Frontend Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-    <meta property="og:title" content="Melody Naorem | Frontend Developer" />
-    <meta property="og:description" content="Frontend developer with 4+ years of experience building responsive, user-friendly web interfaces." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <link rel="stylesheet" href="./static.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Melody Naorem | Frontend Developer" />
-    <meta name="twitter:description" content="Frontend developer with 4+ years of experience building responsive, user-friendly web interfaces." />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <style>
+      :root {
+        --gradient-primary: linear-gradient(
+          135deg,
+          hsl(262, 83%, 58%) 0%,
+          hsl(220, 90%, 56%) 100%
+        );
+        --gradient-subtle: linear-gradient(
+          180deg,
+          hsl(250, 30%, 98%) 0%,
+          hsl(262, 30%, 96%) 100%
+        );
+        --gradient-hero: linear-gradient(
+          135deg,
+          hsl(262, 40%, 98%) 0%,
+          hsl(220, 50%, 96%) 50%,
+          hsl(262, 30%, 98%) 100%
+        );
+        --gradient-card: linear-gradient(
+          145deg,
+          hsl(0, 0%, 100%) 0%,
+          hsl(262, 30%, 99%) 100%
+        );
+      }
 
-    <link rel="canonical" href="https://melodynaorem.dev" />
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: hsl(250, 30%, 98%);
+        color: hsl(250, 25%, 15%);
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+
+      .gradient-text {
+        background-image: var(--gradient-primary);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+
+      .gradient-bg {
+        background: var(--gradient-primary);
+      }
+
+      .gradient-hero {
+        background: var(--gradient-hero);
+      }
+
+      .gradient-card {
+        background: var(--gradient-card);
+      }
+
+      .shadow-soft {
+        box-shadow: 0 4px 20px -4px hsl(262, 83%, 58%, 0.15);
+      }
+
+      .shadow-card {
+        box-shadow: 0 8px 30px -8px hsl(262, 50%, 30%, 0.12);
+      }
+
+      .shadow-elevated {
+        box-shadow: 0 20px 50px -15px hsl(262, 50%, 30%, 0.2);
+      }
+
+      .shadow-glow {
+        box-shadow: 0 0 40px hsl(262, 83%, 58%, 0.25);
+      }
+
+      .glass-strong {
+        backdrop-filter: blur(20px);
+        background: hsla(0, 0%, 100%, 0.9);
+        border: 1px solid hsla(250, 20%, 90%, 0.6);
+      }
+
+      .container-custom {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-padding {
+        padding: 4rem 1rem;
+      }
+
+      @media (min-width: 640px) {
+        .section-padding {
+          padding: 4rem 1.5rem;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .section-padding {
+          padding: 6rem 2rem;
+        }
+      }
+
+      .animate-pulse-soft {
+        animation: pulse-soft 1.8s ease-in-out infinite;
+      }
+
+      @keyframes pulse-soft {
+        0%,
+        100% {
+          opacity: 0.5;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.1);
+        }
+      }
+    </style>
   </head>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body class="bg-background text-foreground antialiased">
+    <!-- Navbar -->
+    <header
+      class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      id="navbar"
+    >
+      <nav
+        class="container-custom mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between"
+      >
+        <a href="#top" class="text-xl font-bold gradient-text">Melody.</a>
+
+        <div class="hidden md:flex items-center gap-1" id="desktop-nav">
+          <button class="nav-link px-4 py-2 rounded-lg text-sm font-medium">
+            About
+          </button>
+          <button class="nav-link px-4 py-2 rounded-lg text-sm font-medium">
+            Skills
+          </button>
+          <button class="nav-link px-4 py-2 rounded-lg text-sm font-medium">
+            Experience
+          </button>
+          <button class="nav-link px-4 py-2 rounded-lg text-sm font-medium">
+            Projects
+          </button>
+          <button class="nav-link px-4 py-2 rounded-lg text-sm font-medium">
+            Education
+          </button>
+          <button class="nav-link px-4 py-2 rounded-lg text-sm font-medium">
+            Contact
+          </button>
+        </div>
+
+        <div class="hidden md:block">
+          <a
+            href="#contact"
+            class="inline-flex items-center gap-2 rounded-lg bg-primary text-primary-foreground px-4 py-2 text-sm font-semibold shadow-soft hover:shadow-elevated transition-all"
+            >Let's Talk</a
+          >
+        </div>
+
+        <button
+          id="mobile-menu-button"
+          class="md:hidden p-2 rounded-lg hover:bg-muted/50 transition-colors"
+          aria-label="Toggle menu"
+        >
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </nav>
+
+      <div
+        id="mobile-menu"
+        class="md:hidden max-h-0 overflow-hidden transition-all duration-300 glass-strong mx-4 rounded-2xl"
+      >
+        <div class="flex flex-col gap-2 p-4">
+          <button class="nav-link px-4 py-3 rounded-lg text-left font-medium">
+            About
+          </button>
+          <button class="nav-link px-4 py-3 rounded-lg text-left font-medium">
+            Skills
+          </button>
+          <button class="nav-link px-4 py-3 rounded-lg text-left font-medium">
+            Experience
+          </button>
+          <button class="nav-link px-4 py-3 rounded-lg text-left font-medium">
+            Projects
+          </button>
+          <button class="nav-link px-4 py-3 rounded-lg text-left font-medium">
+            Education
+          </button>
+          <button class="nav-link px-4 py-3 rounded-lg text-left font-medium">
+            Contact
+          </button>
+          <a
+            href="#contact"
+            class="mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-primary text-primary-foreground px-4 py-3 font-semibold shadow-soft hover:shadow-elevated transition-all"
+            >Let's Talk</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main id="top" class="pt-24">
+      <!-- Hero -->
+      <section
+        class="min-h-screen gradient-hero flex items-center relative overflow-hidden"
+        id="home"
+      >
+        <div class="absolute inset-0 pointer-events-none">
+          <div
+            class="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse-soft"
+          ></div>
+          <div
+            class="absolute bottom-20 left-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse-soft"
+          ></div>
+          <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-3xl bg-gradient-to-r from-primary/5 to-accent/5"
+          ></div>
+        </div>
+
+        <div
+          class="container-custom mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 relative z-10"
+        >
+          <div class="max-w-4xl mx-auto text-center">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8"
+            >
+              <span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+              Available for new opportunities
+            </div>
+
+            <h1
+              class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
+            >
+              Hi, I'm <span class="gradient-text">Melody Naorem</span>
+            </h1>
+
+            <h2
+              class="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground/80 mb-4"
+            >
+              Front End Developer | UI Developer
+            </h2>
+
+            <div
+              class="flex items-center justify-center gap-2 text-muted-foreground mb-8"
+            >
+              <i data-lucide="map-pin" class="w-4 h-4"></i>
+              <span>Bengaluru, Karnataka</span>
+            </div>
+
+            <p
+              class="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
+            >
+              Frontend developer with 4+ years of experience building responsive,
+              user-friendly web interfaces and converting Figma designs into
+              pixel-perfect code.
+            </p>
+
+            <div
+              class="flex flex-col sm:flex-row items-center justify-center gap-4"
+            >
+              <a
+                href="melody-naorem-resume.pdf"
+                download="Melody-Naorem-Resume.pdf"
+                class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold shadow-soft hover:shadow-elevated transition-all"
+              >
+                <i data-lucide="download" class="w-4 h-4"></i>
+                Download Resume
+              </a>
+              <a
+                href="#projects"
+                class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-primary/40 text-primary font-semibold hover:bg-primary/10 transition-all"
+              >
+                View Projects
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+              <a
+                href="#contact"
+                class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-primary/40 text-primary font-semibold hover:bg-primary/10 transition-all"
+              >
+                <i data-lucide="mail" class="w-4 h-4"></i>
+                Contact Me
+              </a>
+            </div>
+
+            <div
+              class="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-16 pt-16 border-t border-border/50"
+            >
+              <div class="text-center">
+                <div class="text-3xl sm:text-4xl font-bold gradient-text mb-2">
+                  4+
+                </div>
+                <div class="text-sm text-muted-foreground">Years Experience</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl sm:text-4xl font-bold gradient-text mb-2">
+                  10+
+                </div>
+                <div class="text-sm text-muted-foreground">Projects Completed</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl sm:text-4xl font-bold gradient-text mb-2">
+                  15+
+                </div>
+                <div class="text-sm text-muted-foreground">Technologies</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl sm:text-4xl font-bold gradient-text mb-2">
+                  100%
+                </div>
+                <div class="text-sm text-muted-foreground">
+                  Client Satisfaction
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="section-padding bg-background">
+        <div class="container-custom mx-auto">
+          <div class="text-center mb-16">
+            <span
+              class="text-primary font-semibold text-sm tracking-wider uppercase mb-4 block"
+              >About Me</span
+            >
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+              Passionate About Creating <br /><span class="gradient-text"
+                >Beautiful Web Experiences</span
+              >
+            </h2>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
+              <p class="text-lg text-muted-foreground leading-relaxed mb-6">
+                I'm a Frontend Developer with
+                <strong class="text-foreground">4+ years of experience</strong> in
+                building responsive websites, UI development, and Figma-to-code
+                conversion. I'm passionate about improving user experience and
+                creating intuitive interfaces.
+              </p>
+              <p class="text-lg text-muted-foreground leading-relaxed mb-8">
+                Throughout my career, I've worked on diverse platforms including
+                <strong class="text-foreground">e-learning systems</strong>,
+                <strong class="text-foreground">real estate platforms</strong>, and
+                <strong class="text-foreground">service portals</strong>. I
+                specialize in React, JavaScript, TypeScript, and modern frontend
+                workflows.
+              </p>
+              <p class="text-lg text-muted-foreground leading-relaxed">
+                I believe in writing clean, maintainable code and collaborating
+                closely with designers and backend developers to deliver
+                exceptional digital products.
+              </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div
+                class="p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-300"
+              >
+                <div
+                  class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4"
+                >
+                  <i data-lucide="code-2" class="w-6 h-6 text-primary-foreground"></i>
+                </div>
+                <h3 class="font-semibold text-lg mb-2">Clean Code</h3>
+                <p class="text-sm text-muted-foreground">
+                  Writing maintainable, scalable code following best practices
+                </p>
+              </div>
+              <div
+                class="p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-300"
+              >
+                <div
+                  class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4"
+                >
+                  <i data-lucide="palette" class="w-6 h-6 text-primary-foreground"></i>
+                </div>
+                <h3 class="font-semibold text-lg mb-2">Pixel Perfect</h3>
+                <p class="text-sm text-muted-foreground">
+                  Converting Figma designs into flawless web interfaces
+                </p>
+              </div>
+              <div
+                class="p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-300"
+              >
+                <div
+                  class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4"
+                >
+                  <i data-lucide="zap" class="w-6 h-6 text-primary-foreground"></i>
+                </div>
+                <h3 class="font-semibold text-lg mb-2">Performance</h3>
+                <p class="text-sm text-muted-foreground">
+                  Optimizing for speed and excellent user experience
+                </p>
+              </div>
+              <div
+                class="p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-300"
+              >
+                <div
+                  class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4"
+                >
+                  <i data-lucide="users" class="w-6 h-6 text-primary-foreground"></i>
+                </div>
+                <h3 class="font-semibold text-lg mb-2">Collaboration</h3>
+                <p class="text-sm text-muted-foreground">
+                  Working effectively with designers and backend teams
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="section-padding gradient-hero">
+        <div class="container-custom mx-auto">
+          <div class="text-center mb-16">
+            <span
+              class="text-primary font-semibold text-sm tracking-wider uppercase mb-4 block"
+              >My Skills</span
+            >
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+              Technologies &amp; Tools <br /><span class="gradient-text"
+                >I Work With</span
+              >
+            </h2>
+            <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+              A comprehensive toolkit built over 4+ years of frontend development
+              experience
+            </p>
+          </div>
+
+          <div class="max-w-4xl mx-auto space-y-12">
+            <div>
+              <h3 class="text-xl font-semibold mb-6 text-center">
+                <span class="gradient-text">Frontend</span> Development
+              </h3>
+              <div class="flex flex-wrap justify-center gap-3">
+                <span
+                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
+                  >React.js</span
+                >
+                <span
+                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
+                  >TypeScript</span
+                >
+                <span
+                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
+                  >ES6</span
+                >
+                <span
+                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
+                  >HTML5</span
+                >
+                <span
+                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
+                  >CSS3</span
+                >
+                <span
+                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
+                  >Bootstrap</span
+                >
+                <span
+                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
+                  >JavaScript</span
+                >
+                <span
+                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
+                  >jQuery</span
+                >
+                <span
+                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
+                  >AJAX</span
+                >
+                <span
+                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
+                  >JSON</span
+                >
+                <span
+                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
+                  >Axios</span
+                >
+                <span
+                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
+                  >APIs</span
+                >
+                <span
+                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
+                  >Responsive Design</span
+                >
+                <span
+                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
+                  >OOP</span
+                >
+                <span
+                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
+                  >Agile</span
+                >
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-semibold mb-6 text-center">
+                <span class="gradient-text">Tools</span> &amp; Others
+              </h3>
+              <div class="flex flex-wrap justify-center gap-3">
+                <span
+                  class="px-5 py-2.5 rounded-full gradient-bg text-primary-foreground text-sm font-medium shadow-soft"
+                  >Git</span
+                >
+                <span
+                  class="px-5 py-2.5 rounded-full gradient-bg text-primary-foreground text-sm font-medium shadow-soft"
+                  >Figma</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience" class="section-padding bg-background">
+        <div class="container-custom mx-auto">
+          <div class="text-center mb-16">
+            <span
+              class="text-primary font-semibold text-sm tracking-wider uppercase mb-4 block"
+              >Career Path</span
+            >
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+              Professional <br /><span class="gradient-text">Experience</span>
+            </h2>
+          </div>
+
+          <div class="max-w-3xl mx-auto relative">
+            <div
+              class="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-1/2"
+            ></div>
+
+            <!-- Item 1 -->
+            <div class="relative mb-12 md:pr-8 md:text-right md:w-1/2 pl-8 md:pl-0">
+              <div
+                class="absolute top-0 w-4 h-4 rounded-full gradient-bg border-4 border-background shadow-glow left-0 md:left-auto md:-right-2"
+              ></div>
+              <div
+                class="p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all"
+              >
+                <div class="mb-4 md:text-right">
+                  <div class="flex items-center gap-2 text-sm text-muted-foreground mb-2 md:justify-end">
+                    <i data-lucide="calendar" class="w-4 h-4"></i>
+                    <span>Dec 2024 – Present</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-foreground">UI Developer</h3>
+                  <div class="flex items-center gap-2 text-primary font-medium md:justify-end">
+                    <i data-lucide="briefcase" class="w-4 h-4"></i>
+                    <span>The Knowledge Academy</span>
+                  </div>
+                </div>
+                <ul class="space-y-2 mb-4 md:text-right">
+                  <li class="text-sm text-muted-foreground">
+                    Created responsive web interfaces from Figma designs using HTML, CSS, JS, jQuery
+                  </li>
+                  <li class="text-sm text-muted-foreground">
+                    Improved UX for Moodle-based e-learning features like course enrollment and dashboards
+                  </li>
+                  <li class="text-sm text-muted-foreground">
+                    Implemented updates based on user feedback
+                  </li>
+                  <li class="text-sm text-muted-foreground">
+                    Collaborated closely with UI/UX designers
+                  </li>
+                  <li class="text-sm text-muted-foreground">
+                    Managed platform content via HTML Writer
+                  </li>
+                </ul>
+                <div class="flex flex-wrap gap-2 md:justify-end">
+                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">HTML5</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">CSS</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">JavaScript</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">jQuery</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">Bootstrap 5</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="relative mb-12 md:pl-8 md:ml-auto md:w-1/2 pl-8 md:pl-0">
+              <div
+                class="absolute top-0 w-4 h-4 rounded-full gradient-bg border-4 border-background shadow-glow left-0 md:-left-2"
+              ></div>
+              <div
+                class="p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all"
+              >
+                <div class="mb-4">
+                  <div class="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                    <i data-lucide="calendar" class="w-4 h-4"></i>
+                    <span>Sep 2023 – Sep 2024</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-foreground">Frontend Developer</h3>
+                  <div class="flex items-center gap-2 text-primary font-medium">
+                    <i data-lucide="briefcase" class="w-4 h-4"></i>
+                    <span>Realtynow Pvt Ltd</span>
+                  </div>
+                </div>
+                <ul class="space-y-2 mb-4 text-left">
+                  <li class="text-sm text-muted-foreground">
+                    Built responsive interfaces from Figma for a real estate platform
+                  </li>
+                  <li class="text-sm text-muted-foreground">
+                    Improved UX for property filing, booking &amp; search
+                  </li>
+                  <li class="text-sm text-muted-foreground">
+                    Ensured design accuracy and responsiveness
+                  </li>
+                </ul>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">HTML5</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">CSS</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">JavaScript</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">jQuery</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">Bootstrap 5</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="relative mb-12 md:pr-8 md:text-right md:w-1/2 pl-8 md:pl-0">
+              <div
+                class="absolute top-0 w-4 h-4 rounded-full gradient-bg border-4 border-background shadow-glow left-0 md:left-auto md:-right-2"
+              ></div>
+              <div
+                class="p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all"
+              >
+                <div class="mb-4 md:text-right">
+                  <div class="flex items-center gap-2 text-sm text-muted-foreground mb-2 md:justify-end">
+                    <i data-lucide="calendar" class="w-4 h-4"></i>
+                    <span>Jan 2022 – Sep 2023</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-foreground">Frontend Developer</h3>
+                  <div class="flex items-center gap-2 text-primary font-medium md:justify-end">
+                    <i data-lucide="briefcase" class="w-4 h-4"></i>
+                    <span>Web Digital Mantra</span>
+                  </div>
+                </div>
+                <ul class="space-y-2 mb-4 md:text-right">
+                  <li class="text-sm text-muted-foreground">Built static &amp; dynamic websites</li>
+                  <li class="text-sm text-muted-foreground">
+                    Improved UX in collaboration with backend team
+                  </li>
+                  <li class="text-sm text-muted-foreground">
+                    Modified UI based on client feedback
+                  </li>
+                </ul>
+                <div class="flex flex-wrap gap-2 md:justify-end">
+                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">HTML</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">CSS</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">JavaScript</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">jQuery</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">Bootstrap 5</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="relative mb-0 md:pl-8 md:ml-auto md:w-1/2 pl-8 md:pl-0">
+              <div
+                class="absolute top-0 w-4 h-4 rounded-full gradient-bg border-4 border-background shadow-glow left-0 md:-left-2"
+              ></div>
+              <div
+                class="p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all"
+              >
+                <div class="mb-4">
+                  <div class="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                    <i data-lucide="calendar" class="w-4 h-4"></i>
+                    <span>May 2021 – Dec 2021</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-foreground">Frontend Developer</h3>
+                  <div class="flex items-center gap-2 text-primary font-medium">
+                    <i data-lucide="briefcase" class="w-4 h-4"></i>
+                    <span>Infocampus Logics</span>
+                  </div>
+                </div>
+                <ul class="space-y-2 mb-4 text-left">
+                  <li class="text-sm text-muted-foreground">
+                    Created features using HTML, CSS, jQuery, React.js, Node.js, APIs
+                  </li>
+                  <li class="text-sm text-muted-foreground">
+                    Built cross-browser compatible websites
+                  </li>
+                  <li class="text-sm text-muted-foreground">
+                    Followed compliance standards for UI
+                  </li>
+                </ul>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">HTML</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">CSS</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">jQuery</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">React.js</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">Node.js</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">APIs</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="section-padding gradient-hero">
+        <div class="container-custom mx-auto">
+          <div class="text-center mb-16">
+            <span
+              class="text-primary font-semibold text-sm tracking-wider uppercase mb-4 block"
+              >Portfolio</span
+            >
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+              Featured <br /><span class="gradient-text">Projects</span>
+            </h2>
+            <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+              A selection of projects that showcase my frontend development expertise
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            <!-- Repeat cards -->
+            <article class="group h-full p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-500">
+              <div class="relative mb-6">
+                <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
+                  <i data-lucide="graduation-cap" class="w-7 h-7 text-primary-foreground"></i>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-1 group-hover:gradient-text transition-all">The Knowledge Academy</h3>
+                <p class="text-sm text-primary font-medium mb-4">E-Learning LMS Platform</p>
+                <p class="text-muted-foreground text-sm leading-relaxed mb-6">
+                  Redesigned dashboards, quizzes, exam timers, course pages, and certificate layouts. Delivered major performance improvements and converted Figma designs into pixel-perfect UI.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">HTML</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">CSS</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">JavaScript</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">jQuery</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Bootstrap</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Moodle</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">AJAX</span>
+                </div>
+                <a href="https://elearning.theknowledgeacademy.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all">
+                  View Details
+                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="group h-full p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-500">
+              <div class="relative mb-6">
+                <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
+                  <i data-lucide="book-open" class="w-7 h-7 text-primary-foreground"></i>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-1 group-hover:gradient-text transition-all">MPES E-Learning</h3>
+                <p class="text-sm text-primary font-medium mb-4">Professional Training LMS</p>
+                <p class="text-muted-foreground text-sm leading-relaxed mb-6">
+                  UI overhaul of course pages, dashboards, quizzes, and enrollment pages. Built responsive certificate designs and improved platform performance through CSS/JS optimization.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">HTML5</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">CSS3</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">JavaScript</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">jQuery</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Bootstrap</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Moodle</span>
+                </div>
+                <a href="https://elearning.mpes.co.uk/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all">
+                  View Details
+                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="group h-full p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-500">
+              <div class="relative mb-6">
+                <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
+                  <i data-lucide="building-2" class="w-7 h-7 text-primary-foreground"></i>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-1 group-hover:gradient-text transition-all">Oakwood International</h3>
+                <p class="text-sm text-primary font-medium mb-4">Corporate Training LMS</p>
+                <p class="text-muted-foreground text-sm leading-relaxed mb-6">
+                  Redesigned course structure UI, sidebar navigation, dashboards, and quiz layout. Implemented exam timer UI and ensured cross-browser compatibility.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">HTML5</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">CSS</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">JavaScript</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">jQuery</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">AJAX</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Bootstrap</span>
+                </div>
+                <a href="https://lms.oakwoodinternational.co.uk/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all">
+                  View Details
+                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="group h-full p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-500">
+              <div class="relative mb-6">
+                <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
+                  <i data-lucide="award" class="w-7 h-7 text-primary-foreground"></i>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-1 group-hover:gradient-text transition-all">Global Certification Board</h3>
+                <p class="text-sm text-primary font-medium mb-4">Online Examination System</p>
+                <p class="text-muted-foreground text-sm leading-relaxed mb-6">
+                  Designed exam-taking interface, question navigation, and timer UI. Improved accessibility, responsiveness, and enhanced certificate page layout.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">HTML</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">CSS</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">JavaScript</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">jQuery</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Bootstrap</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Moodle</span>
+                </div>
+                <a href="https://exam.globalcertificationboard.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all">
+                  View Details
+                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="group h-full p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-500">
+              <div class="relative mb-6">
+                <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
+                  <i data-lucide="file-text" class="w-7 h-7 text-primary-foreground"></i>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-1 group-hover:gradient-text transition-all">24 Efiling</h3>
+                <p class="text-sm text-primary font-medium mb-4">Tax &amp; Compliance Platform</p>
+                <p class="text-muted-foreground text-sm leading-relaxed mb-6">
+                  Built user-facing website UI and admin panel for managing users &amp; service requests. Collaborated with PM &amp; clients for continuous improvements.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">HTML</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">CSS</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">JavaScript</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">jQuery</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Bootstrap</span>
+                </div>
+                <a href="https://24efiling.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all">
+                  View Details
+                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="group h-full p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-500">
+              <div class="relative mb-6">
+                <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
+                  <i data-lucide="home" class="w-7 h-7 text-primary-foreground"></i>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-1 group-hover:gradient-text transition-all">RealtyNow</h3>
+                <p class="text-sm text-primary font-medium mb-4">Real Estate Platform</p>
+                <p class="text-muted-foreground text-sm leading-relaxed mb-6">
+                  Developed responsive UI for property listings, search filters, and booking forms. Optimized performance and ensured cross-device compatibility.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">HTML5</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">CSS3</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">JavaScript</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">jQuery</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Bootstrap</span>
+                </div>
+                <a href="https://realtynow.in/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all">
+                  View Details
+                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="group h-full p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-500">
+              <div class="relative mb-6">
+                <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
+                  <i data-lucide="heart" class="w-7 h-7 text-primary-foreground"></i>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-1 group-hover:gradient-text transition-all">Happy U</h3>
+                <p class="text-sm text-primary font-medium mb-4">Health Booking &amp; Consultation Hub</p>
+                <p class="text-muted-foreground text-sm leading-relaxed mb-6">
+                  Developed responsive UI with performance optimization. Supported SEO implementation and backend integration for seamless user experience.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">HTML</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">CSS</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">JavaScript</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">jQuery</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Bootstrap</span>
+                </div>
+                <a href="https://happyu.co.in/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all">
+                  View Details
+                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="group h-full p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-500">
+              <div class="relative mb-6">
+                <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
+                  <i data-lucide="car" class="w-7 h-7 text-primary-foreground"></i>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-1 group-hover:gradient-text transition-all">MyDriver</h3>
+                <p class="text-sm text-primary font-medium mb-4">Driver Booking &amp; Fleet Management</p>
+                <p class="text-muted-foreground text-sm leading-relaxed mb-6">
+                  Built admin UI screens for driver management, customer records, and booking workflows. Designed responsive dashboards with metrics and charts.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">HTML5</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">CSS3</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Bootstrap 5</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">JavaScript</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">jQuery</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">AJAX</span>
+                </div>
+                <a href="https://mydriver.co.in/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all">
+                  View Details
+                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="group h-full p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-500">
+              <div class="relative mb-6">
+                <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
+                  <i data-lucide="factory" class="w-7 h-7 text-primary-foreground"></i>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-1 group-hover:gradient-text transition-all">Prakash Enterprises</h3>
+                <p class="text-sm text-primary font-medium mb-4">Industrial Supplier Website</p>
+                <p class="text-muted-foreground text-sm leading-relaxed mb-6">
+                  Built responsive pages with interactive components. Ensured mobile-friendly layouts using media queries for optimal viewing across devices.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">HTML5</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">CSS</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Bootstrap</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">JavaScript</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">jQuery</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="group h-full p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-500">
+              <div class="relative mb-6">
+                <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
+                  <i data-lucide="plane" class="w-7 h-7 text-primary-foreground"></i>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-1 group-hover:gradient-text transition-all">Docomo Holidays</h3>
+                <p class="text-sm text-primary font-medium mb-4">Travel &amp; Holiday Booking Platform</p>
+                <p class="text-muted-foreground text-sm leading-relaxed mb-6">
+                  Designed and built the entire UI for holiday packages, cruise listings, hotel pages, and booking workflows with interactive components.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">HTML5</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">CSS3</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Bootstrap</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">JavaScript</span>
+                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">jQuery</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section id="education" class="section-padding bg-background">
+        <div class="container-custom mx-auto">
+          <div class="text-center mb-16">
+            <span
+              class="text-primary font-semibold text-sm tracking-wider uppercase mb-4 block"
+              >Education</span
+            >
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+              Academic <br /><span class="gradient-text">Background</span>
+            </h2>
+          </div>
+
+          <div class="max-w-2xl mx-auto">
+            <div class="p-8 rounded-2xl bg-card border border-border/50 shadow-card">
+              <div
+                class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center shadow-glow mb-6 mx-auto"
+              >
+                <i data-lucide="graduation-cap" class="w-8 h-8 text-primary-foreground"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-center mb-2">
+                Bachelor of Engineering (B.E)
+              </h3>
+              <div class="flex items-center justify-center gap-2 text-primary font-medium mb-4">
+                <i data-lucide="building-2" class="w-5 h-5"></i>
+                <span>Alva's Institute of Engineering &amp; Technology</span>
+              </div>
+              <p class="text-center text-muted-foreground mb-4">
+                Mangalore, Karnataka
+              </p>
+              <div class="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-6">
+                <i data-lucide="calendar" class="w-4 h-4"></i>
+                <span>2017 – 2021</span>
+              </div>
+              <div class="pt-6 border-t border-border/50">
+                <p class="text-center text-sm text-muted-foreground">
+                  <span class="font-medium text-foreground">University:</span>
+                  Visvesvaraya Technological University (VTU), Belgaum
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section-padding gradient-hero">
+        <div class="container-custom mx-auto">
+          <div class="text-center mb-16">
+            <span
+              class="text-primary font-semibold text-sm tracking-wider uppercase mb-4 block"
+              >Get In Touch</span
+            >
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+              Let's Work <br /><span class="gradient-text">Together</span>
+            </h2>
+            <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Have a project in mind? I'd love to hear about it. Feel free to reach out!
+            </p>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-5xl mx-auto">
+            <div class="space-y-6">
+              <h3 class="text-2xl font-bold mb-8">Contact Information</h3>
+
+              <div
+                class="flex items-start gap-4 p-4 rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 hover:shadow-soft transition-all duration-300"
+              >
+                <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center shrink-0">
+                  <i data-lucide="mail" class="w-5 h-5 text-primary-foreground"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-muted-foreground mb-1">Email</p>
+                  <a href="mailto:melodynaorem11@gmail.com" class="font-medium hover:text-primary transition-colors">melodynaorem11@gmail.com</a>
+                </div>
+              </div>
+
+              <div
+                class="flex items-start gap-4 p-4 rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 hover:shadow-soft transition-all duration-300"
+              >
+                <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center shrink-0">
+                  <i data-lucide="phone" class="w-5 h-5 text-primary-foreground"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-muted-foreground mb-1">Phone</p>
+                  <a href="tel:+919366207742" class="font-medium hover:text-primary transition-colors">+91 9366207742</a>
+                </div>
+              </div>
+
+              <div
+                class="flex items-start gap-4 p-4 rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 hover:shadow-soft transition-all duration-300"
+              >
+                <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center shrink-0">
+                  <i data-lucide="map-pin" class="w-5 h-5 text-primary-foreground"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-muted-foreground mb-1">Location</p>
+                  <p class="font-medium">Bengaluru, Karnataka</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3 pt-4">
+                <i data-lucide="check-circle" class="w-5 h-5 text-primary"></i>
+                <span class="text-muted-foreground">
+                  Currently available for new opportunities
+                </span>
+              </div>
+            </div>
+
+            <div>
+              <form
+                id="contact-form"
+                class="p-8 rounded-2xl bg-card border border-border/50 shadow-card space-y-4"
+              >
+                <div class="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-medium mb-2" for="name"
+                      >Name</label
+                    >
+                    <input
+                      class="w-full px-4 py-3 rounded-lg bg-background border border-input focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                      id="name"
+                      name="name"
+                      required
+                      placeholder="Your name"
+                    />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium mb-2" for="email"
+                      >Email</label
+                    >
+                    <input
+                      type="email"
+                      class="w-full px-4 py-3 rounded-lg bg-background border border-input focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                      id="email"
+                      name="email"
+                      required
+                      placeholder="your@email.com"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium mb-2" for="subject"
+                    >Subject</label
+                  >
+                  <input
+                    class="w-full px-4 py-3 rounded-lg bg-background border border-input focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                    id="subject"
+                    name="subject"
+                    required
+                    placeholder="What's this about?"
+                  />
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium mb-2" for="message"
+                    >Message</label
+                  >
+                  <textarea
+                    class="w-full px-4 py-3 rounded-lg bg-background border border-input focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
+                    id="message"
+                    name="message"
+                    rows="5"
+                    required
+                    placeholder="Tell me about your project..."
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  class="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-primary text-primary-foreground px-4 py-3 font-semibold shadow-soft hover:shadow-elevated transition-all"
+                  id="submit-btn"
+                >
+                  Send Message
+                  <i data-lucide="send" class="w-4 h-4"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-background border-t border-border/50">
+      <div class="container-custom mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex flex-col sm:flex-row items-center justify-between gap-4"
+        >
+          <a href="#top" class="text-xl font-bold gradient-text">Melody.</a>
+          <p class="text-sm text-muted-foreground flex items-center gap-1">
+            © <span id="year"></span> Melody Naorem. Made with
+            <i data-lucide="heart" class="w-4 h-4 text-primary fill-primary"></i>
+            in Bengaluru
+          </p>
+          <div class="flex items-center gap-6">
+            <a
+              href="#about"
+              class="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >About</a
+            >
+            <a
+              href="#projects"
+              class="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >Projects</a
+            >
+            <a
+              href="#contact"
+              class="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Icons
+      lucide.createIcons();
+
+      // Navbar behavior
+      const navbar = document.getElementById("navbar");
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      const sections = [
+        { id: "about", label: "About" },
+        { id: "skills", label: "Skills" },
+        { id: "experience", label: "Experience" },
+        { id: "projects", label: "Projects" },
+        { id: "education", label: "Education" },
+        { id: "contact", label: "Contact" },
+      ];
+
+      function closeMenu() {
+        mobileMenu.style.maxHeight = "0px";
+      }
+
+      function openMenu() {
+        mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
+      }
+
+      mobileMenuButton.addEventListener("click", () => {
+        const isOpen = mobileMenu.style.maxHeight && mobileMenu.style.maxHeight !== "0px";
+        if (isOpen) {
+          closeMenu();
+          mobileMenuButton.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+        } else {
+          openMenu();
+          mobileMenuButton.innerHTML = '<i data-lucide="x" class="w-6 h-6"></i>';
+        }
+        lucide.createIcons();
+      });
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          const text = e.target.textContent.trim();
+          const target = sections.find((s) => s.label === text);
+          if (target) {
+            document.getElementById(target.id)?.scrollIntoView({ behavior: "smooth" });
+          }
+          closeMenu();
+          mobileMenuButton.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+          lucide.createIcons();
+        });
+      });
+
+      window.addEventListener("scroll", () => {
+        const scrolled = window.scrollY > 50;
+        if (scrolled) {
+          navbar.classList.add("glass-strong", "py-3", "shadow-soft");
+          navbar.classList.remove("py-5");
+        } else {
+          navbar.classList.remove("glass-strong", "shadow-soft");
+          navbar.classList.add("py-5");
+        }
+
+        const fromTop = window.scrollY + 160;
+        sections.forEach((section) => {
+          const element = document.getElementById(section.id);
+          if (!element) return;
+          const offsetTop = element.offsetTop;
+          if (fromTop >= offsetTop) {
+            navLinks.forEach((link) => link.classList.remove("text-primary", "bg-primary/10"));
+            navLinks.forEach((link) => link.classList.add("text-muted-foreground"));
+            const active = Array.from(navLinks).find(
+              (link) => link.textContent.trim() === section.label
+            );
+            if (active) {
+              active.classList.remove("text-muted-foreground");
+              active.classList.add("text-primary", "bg-primary/10");
+            }
+          }
+        });
+      });
+
+      // Contact form -> WhatsApp redirect
+      const form = document.getElementById("contact-form");
+      const submitBtn = document.getElementById("submit-btn");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+
+        const name = form.name.value;
+        const email = form.email.value;
+        const subject = form.subject.value;
+        const message = form.message.value;
+
+        const whatsappNumber = "919366207742";
+        const whatsappMessage = `New Portfolio Enquiry:\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`;
+        const encoded = encodeURIComponent(whatsappMessage);
+        const url = `https://wa.me/${whatsappNumber}?text=${encoded}`;
+
+        window.location.href = url;
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send Message";
+      });
+
+      // Year
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
