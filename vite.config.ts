@@ -4,8 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-const repoName = process.env.GITHUB_REPOSITORY?.split("/")?.[1];
-const base = repoName ? `/${repoName}/` : "/";
+const base = "/melody-portfolio/";
 
 export default defineConfig(({ mode }) => ({
   base,
