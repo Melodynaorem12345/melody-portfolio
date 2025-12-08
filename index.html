@@ -3,1321 +3,848 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Melody Naorem | Frontend Developer</title>
+    <title>Melody Naorem | Front End & UI Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-
-    <link rel="stylesheet" href="./static.css" />
-    <script src="https://unpkg.com/lucide@latest"></script>
-
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
     <style>
       :root {
-        --gradient-primary: linear-gradient(
-          135deg,
-          hsl(262, 83%, 58%) 0%,
-          hsl(220, 90%, 56%) 100%
-        );
-        --gradient-subtle: linear-gradient(
-          180deg,
-          hsl(250, 30%, 98%) 0%,
-          hsl(262, 30%, 96%) 100%
-        );
-        --gradient-hero: linear-gradient(
-          135deg,
-          hsl(262, 40%, 98%) 0%,
-          hsl(220, 50%, 96%) 50%,
-          hsl(262, 30%, 98%) 100%
-        );
-        --gradient-card: linear-gradient(
-          145deg,
-          hsl(0, 0%, 100%) 0%,
-          hsl(262, 30%, 99%) 100%
-        );
+        --bg: #f5f3ff;
+        --fg: #1f1b2d;
+        --primary: #6a4bff;
+        --primary-2: #3772ff;
+        --accent: #3772ff;
+        --muted: #6c6a7a;
+        --card: #ffffff;
+        --border: #e8e6f5;
+        --radius: 18px;
       }
-
-      html {
-        scroll-behavior: smooth;
+      * {
+        box-sizing: border-box;
       }
-
       body {
-        background-color: hsl(250, 30%, 98%);
-        color: hsl(250, 25%, 15%);
         font-family: "Plus Jakarta Sans", sans-serif;
+        background: radial-gradient(circle at 10% 20%, #f5f3ff 0, #f0f4ff 25%, #f6f6ff 50%, #f5f3ff 75%);
+        color: var(--fg);
+        margin: 0;
       }
-
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .nav-link-custom {
+        padding: 10px 14px;
+        border-radius: 12px;
+        color: #615e73;
+        font-weight: 600;
+        transition: all 0.2s ease;
+      }
+      .nav-link-custom.active,
+      .nav-link-custom:hover {
+        color: var(--primary);
+        background: #efeaff;
+      }
+      .btn-cta {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+        color: #fff;
+        border: none;
+        border-radius: 12px;
+        padding: 10px 18px;
+        font-weight: 700;
+        box-shadow: 0 10px 30px rgba(106, 75, 255, 0.3);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .btn-cta:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 14px 32px rgba(55, 114, 255, 0.35);
+      }
+      .section {
+        padding: 100px 0;
+      }
       .gradient-text {
-        background-image: var(--gradient-primary);
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
         -webkit-background-clip: text;
         color: transparent;
       }
-
-      .gradient-bg {
-        background: var(--gradient-primary);
+      .card-soft {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        box-shadow: 0 18px 38px rgba(50, 50, 93, 0.06);
+        padding: 26px;
       }
-
-      .gradient-hero {
-        background: var(--gradient-hero);
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 14px;
+        border-radius: 16px;
+        background: #efeaff;
+        color: var(--primary);
+        font-weight: 600;
+        font-size: 13px;
       }
-
-      .gradient-card {
-        background: var(--gradient-card);
+      .pill {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: #f1f0ff;
+        color: #615e73;
+        font-weight: 600;
+        font-size: 12px;
+        margin: 4px;
       }
-
-      .shadow-soft {
-        box-shadow: 0 4px 20px -4px hsl(262, 83%, 58%, 0.15);
+      .hero {
+        position: relative;
+        overflow: hidden;
+        background: radial-gradient(circle at 15% 20%, rgba(106, 75, 255, 0.2), transparent 35%),
+          radial-gradient(circle at 80% 10%, rgba(55, 114, 255, 0.2), transparent 30%),
+          radial-gradient(circle at 50% 70%, rgba(92, 66, 255, 0.12), transparent 40%),
+          #f7f6ff;
       }
-
-      .shadow-card {
-        box-shadow: 0 8px 30px -8px hsl(262, 50%, 30%, 0.12);
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(245, 243, 255, 0.9) 100%);
+        pointer-events: none;
       }
-
-      .shadow-elevated {
-        box-shadow: 0 20px 50px -15px hsl(262, 50%, 30%, 0.2);
+      .hero-content {
+        position: relative;
+        z-index: 1;
       }
-
-      .shadow-glow {
-        box-shadow: 0 0 40px hsl(262, 83%, 58%, 0.25);
+      .section-heading {
+        text-align: center;
+        margin-bottom: 60px;
       }
-
-      .glass-strong {
-        backdrop-filter: blur(20px);
-        background: hsla(0, 0%, 100%, 0.9);
-        border: 1px solid hsla(250, 20%, 90%, 0.6);
+      .section-heading .eyebrow {
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: var(--primary);
+        font-size: 12px;
       }
-
-      .container-custom {
-        max-width: 1200px;
+      .section-heading h2 {
+        font-size: clamp(30px, 4vw, 44px);
+        font-weight: 800;
+        margin: 10px 0;
+      }
+      .section-heading p {
+        color: var(--muted);
+        max-width: 720px;
         margin: 0 auto;
       }
-
-      .section-padding {
-        padding: 4rem 1rem;
+      .timeline {
+        position: relative;
+        padding-left: 18px;
       }
-
-      @media (min-width: 640px) {
-        .section-padding {
-          padding: 4rem 1.5rem;
-        }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 6px;
+        top: 10px;
+        bottom: 10px;
+        width: 2px;
+        background: linear-gradient(180deg, #dcd6ff, #c0d4ff);
       }
-
-      @media (min-width: 768px) {
-        .section-padding {
-          padding: 6rem 2rem;
-        }
+      .timeline-item {
+        position: relative;
+        margin-bottom: 40px;
       }
-
-      .animate-pulse-soft {
-        animation: pulse-soft 1.8s ease-in-out infinite;
+      .timeline-dot {
+        position: absolute;
+        left: -2px;
+        top: 6px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #fff;
+        border: 4px solid #c3b8ff;
+        box-shadow: 0 0 0 6px rgba(195, 184, 255, 0.2);
       }
-
-      @keyframes pulse-soft {
-        0%,
-        100% {
-          opacity: 0.5;
-          transform: scale(1);
-        }
-        50% {
-          opacity: 1;
-          transform: scale(1.1);
-        }
+      .project-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .project-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 22px 50px rgba(70, 64, 222, 0.15);
+      }
+      .icon-box {
+        width: 52px;
+        height: 52px;
+        border-radius: 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #7c5bff, #4f7bff);
+        color: #fff;
+        font-size: 22px;
+        box-shadow: 0 12px 24px rgba(80, 82, 255, 0.25);
+      }
+      .contact-card {
+        border-radius: 18px;
+        border: 1px solid var(--border);
+        padding: 14px;
+        background: #fff;
+      }
+      .footer {
+        border-top: 1px solid var(--border);
+        padding: 22px 0;
+        color: #7c7a8c;
+        background: #f9f8ff;
+      }
+      .badge-light {
+        background: #efeaff;
+        color: var(--primary);
+        border: none;
+      }
+      .btn-outline {
+        border: 1px solid rgba(106, 75, 255, 0.4);
+        color: var(--primary);
+        padding: 10px 16px;
+        border-radius: 12px;
+        font-weight: 700;
+        background: rgba(106, 75, 255, 0.07);
+      }
+      .btn-outline:hover {
+        background: rgba(106, 75, 255, 0.15);
       }
     </style>
   </head>
-
-  <body class="bg-background text-foreground antialiased">
-    <!-- Navbar -->
-    <header
-      class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-      id="navbar"
+  <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="90" tabindex="0">
+    <nav
+      id="mainNav"
+      class="navbar navbar-expand-lg fixed-top bg-white shadow-sm"
+      style="border-bottom: 1px solid var(--border)"
     >
-      <nav
-        class="container-custom mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between"
-      >
-        <a href="#top" class="text-xl font-bold gradient-text">Melody.</a>
-
-        <div class="hidden md:flex items-center gap-1" id="desktop-nav">
-          <button class="nav-link px-4 py-2 rounded-lg text-sm font-medium">
-            About
-          </button>
-          <button class="nav-link px-4 py-2 rounded-lg text-sm font-medium">
-            Skills
-          </button>
-          <button class="nav-link px-4 py-2 rounded-lg text-sm font-medium">
-            Experience
-          </button>
-          <button class="nav-link px-4 py-2 rounded-lg text-sm font-medium">
-            Projects
-          </button>
-          <button class="nav-link px-4 py-2 rounded-lg text-sm font-medium">
-            Education
-          </button>
-          <button class="nav-link px-4 py-2 rounded-lg text-sm font-medium">
-            Contact
-          </button>
-        </div>
-
-        <div class="hidden md:block">
-          <a
-            href="#contact"
-            class="inline-flex items-center gap-2 rounded-lg bg-primary text-primary-foreground px-4 py-2 text-sm font-semibold shadow-soft hover:shadow-elevated transition-all"
-            >Let's Talk</a
-          >
-        </div>
-
+      <div class="container">
+        <a class="navbar-brand fw-bold gradient-text" href="#top">Melody.</a>
         <button
-          id="mobile-menu-button"
-          class="md:hidden p-2 rounded-lg hover:bg-muted/50 transition-colors"
-          aria-label="Toggle menu"
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          <i data-lucide="menu" class="w-6 h-6"></i>
+          <span class="navbar-toggler-icon"></span>
         </button>
-      </nav>
-
-      <div
-        id="mobile-menu"
-        class="md:hidden max-h-0 overflow-hidden transition-all duration-300 glass-strong mx-4 rounded-2xl"
-      >
-        <div class="flex flex-col gap-2 p-4">
-          <button class="nav-link px-4 py-3 rounded-lg text-left font-medium">
-            About
-          </button>
-          <button class="nav-link px-4 py-3 rounded-lg text-left font-medium">
-            Skills
-          </button>
-          <button class="nav-link px-4 py-3 rounded-lg text-left font-medium">
-            Experience
-          </button>
-          <button class="nav-link px-4 py-3 rounded-lg text-left font-medium">
-            Projects
-          </button>
-          <button class="nav-link px-4 py-3 rounded-lg text-left font-medium">
-            Education
-          </button>
-          <button class="nav-link px-4 py-3 rounded-lg text-left font-medium">
-            Contact
-          </button>
-          <a
-            href="#contact"
-            class="mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-primary text-primary-foreground px-4 py-3 font-semibold shadow-soft hover:shadow-elevated transition-all"
-            >Let's Talk</a
-          >
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+            <li class="nav-item"><a class="nav-link nav-link-custom" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link nav-link-custom" href="#skills">Skills</a></li>
+            <li class="nav-item"><a class="nav-link nav-link-custom" href="#experience">Experience</a></li>
+            <li class="nav-item"><a class="nav-link nav-link-custom" href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link nav-link-custom" href="#education">Education</a></li>
+            <li class="nav-item"><a class="nav-link nav-link-custom" href="#contact">Contact</a></li>
+            <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+              <a class="btn btn-cta" href="#contact">Let's Talk</a>
+            </li>
+          </ul>
         </div>
       </div>
-    </header>
+    </nav>
 
-    <main id="top" class="pt-24">
-      <!-- Hero -->
-      <section
-        class="min-h-screen gradient-hero flex items-center relative overflow-hidden"
-        id="home"
-      >
-        <div class="absolute inset-0 pointer-events-none">
-          <div
-            class="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse-soft"
-          ></div>
-          <div
-            class="absolute bottom-20 left-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse-soft"
-          ></div>
-          <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-3xl bg-gradient-to-r from-primary/5 to-accent/5"
-          ></div>
+    <!-- Hero -->
+    <section id="top" class="section hero">
+      <div class="container hero-content text-center">
+        <div class="d-inline-flex align-items-center gap-2 tag mb-4">
+          <span class="bi bi-circle-fill small"></span>
+          Available for new opportunities
         </div>
-
-        <div
-          class="container-custom mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 relative z-10"
-        >
-          <div class="max-w-4xl mx-auto text-center">
-            <div
-              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8"
-            >
-              <span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-              Available for new opportunities
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(36px, 6vw, 60px)">
+          Hi, I'm <span class="gradient-text">Melody Naorem</span>
+        </h1>
+        <h5 class="fw-semibold text-secondary mb-3">Front End Developer | UI Developer</h5>
+        <p class="text-muted mb-4 d-inline-flex align-items-center gap-2">
+          <i class="bi bi-geo-alt"></i> Bengaluru, Karnataka
+        </p>
+        <p class="text-muted fs-5 mb-4 mx-auto" style="max-width: 760px">
+          Frontend developer with 4+ years of experience building responsive, user-friendly web interfaces and converting
+          Figma designs into pixel-perfect code.
+        </p>
+        <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
+          <a class="btn btn-cta d-inline-flex align-items-center gap-2" href="./melody-naorem-resume.pdf" download>
+            <i class="bi bi-download"></i> Download Resume
+          </a>
+          <a class="btn btn-outline d-inline-flex align-items-center gap-2" href="#projects">
+            View Projects <i class="bi bi-arrow-right"></i>
+          </a>
+          <a class="btn btn-outline d-inline-flex align-items-center gap-2" href="#contact">
+            <i class="bi bi-envelope"></i> Contact Me
+          </a>
+        </div>
+        <div class="row g-3 justify-content-center">
+          <div class="col-6 col-md-3">
+            <div class="card-soft text-center">
+              <div class="h3 fw-bold gradient-text mb-2">4+</div>
+              <div class="small text-muted">Years Experience</div>
             </div>
-
-            <h1
-              class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
-            >
-              Hi, I'm <span class="gradient-text">Melody Naorem</span>
-            </h1>
-
-            <h2
-              class="text-xl sm:text-2xl md:text-3xl font-semibold text-foreground/80 mb-4"
-            >
-              Front End Developer | UI Developer
-            </h2>
-
-            <div
-              class="flex items-center justify-center gap-2 text-muted-foreground mb-8"
-            >
-              <i data-lucide="map-pin" class="w-4 h-4"></i>
-              <span>Bengaluru, Karnataka</span>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="card-soft text-center">
+              <div class="h3 fw-bold gradient-text mb-2">10+</div>
+              <div class="small text-muted">Projects Completed</div>
             </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="card-soft text-center">
+              <div class="h3 fw-bold gradient-text mb-2">15+</div>
+              <div class="small text-muted">Technologies</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="card-soft text-center">
+              <div class="h3 fw-bold gradient-text mb-2">100%</div>
+              <div class="small text-muted">Client Satisfaction</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <p
-              class="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
-            >
-              Frontend developer with 4+ years of experience building responsive,
-              user-friendly web interfaces and converting Figma designs into
-              pixel-perfect code.
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">About Me</div>
+          <h2>
+            Passionate About Creating <br />
+            <span class="gradient-text">Beautiful Web Experiences</span>
+          </h2>
+        </div>
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6">
+            <p class="text-muted fs-5">
+              I'm a Frontend Developer with <strong class="text-dark">4+ years of experience</strong> in building responsive
+              websites, UI development, and Figma-to-code conversion. I'm passionate about improving user experience and creating intuitive interfaces.
             </p>
-
-            <div
-              class="flex flex-col sm:flex-row items-center justify-center gap-4"
-            >
-              <a
-                href="melody-naorem-resume.pdf"
-                download="Melody-Naorem-Resume.pdf"
-                class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold shadow-soft hover:shadow-elevated transition-all"
-              >
-                <i data-lucide="download" class="w-4 h-4"></i>
-                Download Resume
-              </a>
-              <a
-                href="#projects"
-                class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-primary/40 text-primary font-semibold hover:bg-primary/10 transition-all"
-              >
-                View Projects
-                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              </a>
-              <a
-                href="#contact"
-                class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-primary/40 text-primary font-semibold hover:bg-primary/10 transition-all"
-              >
-                <i data-lucide="mail" class="w-4 h-4"></i>
-                Contact Me
-              </a>
-            </div>
-
-            <div
-              class="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-16 pt-16 border-t border-border/50"
-            >
-              <div class="text-center">
-                <div class="text-3xl sm:text-4xl font-bold gradient-text mb-2">
-                  4+
-                </div>
-                <div class="text-sm text-muted-foreground">Years Experience</div>
-              </div>
-              <div class="text-center">
-                <div class="text-3xl sm:text-4xl font-bold gradient-text mb-2">
-                  10+
-                </div>
-                <div class="text-sm text-muted-foreground">Projects Completed</div>
-              </div>
-              <div class="text-center">
-                <div class="text-3xl sm:text-4xl font-bold gradient-text mb-2">
-                  15+
-                </div>
-                <div class="text-sm text-muted-foreground">Technologies</div>
-              </div>
-              <div class="text-center">
-                <div class="text-3xl sm:text-4xl font-bold gradient-text mb-2">
-                  100%
-                </div>
-                <div class="text-sm text-muted-foreground">
-                  Client Satisfaction
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- About -->
-      <section id="about" class="section-padding bg-background">
-        <div class="container-custom mx-auto">
-          <div class="text-center mb-16">
-            <span
-              class="text-primary font-semibold text-sm tracking-wider uppercase mb-4 block"
-              >About Me</span
-            >
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              Passionate About Creating <br /><span class="gradient-text"
-                >Beautiful Web Experiences</span
-              >
-            </h2>
-          </div>
-
-          <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div>
-              <p class="text-lg text-muted-foreground leading-relaxed mb-6">
-                I'm a Frontend Developer with
-                <strong class="text-foreground">4+ years of experience</strong> in
-                building responsive websites, UI development, and Figma-to-code
-                conversion. I'm passionate about improving user experience and
-                creating intuitive interfaces.
-              </p>
-              <p class="text-lg text-muted-foreground leading-relaxed mb-8">
-                Throughout my career, I've worked on diverse platforms including
-                <strong class="text-foreground">e-learning systems</strong>,
-                <strong class="text-foreground">real estate platforms</strong>, and
-                <strong class="text-foreground">service portals</strong>. I
-                specialize in React, JavaScript, TypeScript, and modern frontend
-                workflows.
-              </p>
-              <p class="text-lg text-muted-foreground leading-relaxed">
-                I believe in writing clean, maintainable code and collaborating
-                closely with designers and backend developers to deliver
-                exceptional digital products.
-              </p>
-            </div>
-
-            <div class="grid sm:grid-cols-2 gap-4">
-              <div
-                class="p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-300"
-              >
-                <div
-                  class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4"
-                >
-                  <i data-lucide="code-2" class="w-6 h-6 text-primary-foreground"></i>
-                </div>
-                <h3 class="font-semibold text-lg mb-2">Clean Code</h3>
-                <p class="text-sm text-muted-foreground">
-                  Writing maintainable, scalable code following best practices
-                </p>
-              </div>
-              <div
-                class="p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-300"
-              >
-                <div
-                  class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4"
-                >
-                  <i data-lucide="palette" class="w-6 h-6 text-primary-foreground"></i>
-                </div>
-                <h3 class="font-semibold text-lg mb-2">Pixel Perfect</h3>
-                <p class="text-sm text-muted-foreground">
-                  Converting Figma designs into flawless web interfaces
-                </p>
-              </div>
-              <div
-                class="p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-300"
-              >
-                <div
-                  class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4"
-                >
-                  <i data-lucide="zap" class="w-6 h-6 text-primary-foreground"></i>
-                </div>
-                <h3 class="font-semibold text-lg mb-2">Performance</h3>
-                <p class="text-sm text-muted-foreground">
-                  Optimizing for speed and excellent user experience
-                </p>
-              </div>
-              <div
-                class="p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-300"
-              >
-                <div
-                  class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4"
-                >
-                  <i data-lucide="users" class="w-6 h-6 text-primary-foreground"></i>
-                </div>
-                <h3 class="font-semibold text-lg mb-2">Collaboration</h3>
-                <p class="text-sm text-muted-foreground">
-                  Working effectively with designers and backend teams
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Skills -->
-      <section id="skills" class="section-padding gradient-hero">
-        <div class="container-custom mx-auto">
-          <div class="text-center mb-16">
-            <span
-              class="text-primary font-semibold text-sm tracking-wider uppercase mb-4 block"
-              >My Skills</span
-            >
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              Technologies &amp; Tools <br /><span class="gradient-text"
-                >I Work With</span
-              >
-            </h2>
-            <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A comprehensive toolkit built over 4+ years of frontend development
-              experience
+            <p class="text-muted fs-5">
+              Throughout my career, I've worked on diverse platforms including <strong>e-learning systems</strong>,
+              <strong>real estate platforms</strong>, and <strong>service portals</strong>. I specialize in React, JavaScript, TypeScript, and modern frontend workflows.
+            </p>
+            <p class="text-muted fs-5">
+              I believe in writing clean, maintainable code and collaborating closely with designers and backend developers to deliver exceptional digital products.
             </p>
           </div>
-
-          <div class="max-w-4xl mx-auto space-y-12">
-            <div>
-              <h3 class="text-xl font-semibold mb-6 text-center">
-                <span class="gradient-text">Frontend</span> Development
-              </h3>
-              <div class="flex flex-wrap justify-center gap-3">
-                <span
-                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
-                  >React.js</span
-                >
-                <span
-                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
-                  >TypeScript</span
-                >
-                <span
-                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
-                  >ES6</span
-                >
-                <span
-                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
-                  >HTML5</span
-                >
-                <span
-                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
-                  >CSS3</span
-                >
-                <span
-                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
-                  >Bootstrap</span
-                >
-                <span
-                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
-                  >JavaScript</span
-                >
-                <span
-                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
-                  >jQuery</span
-                >
-                <span
-                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
-                  >AJAX</span
-                >
-                <span
-                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
-                  >JSON</span
-                >
-                <span
-                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
-                  >Axios</span
-                >
-                <span
-                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
-                  >APIs</span
-                >
-                <span
-                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
-                  >Responsive Design</span
-                >
-                <span
-                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
-                  >OOP</span
-                >
-                <span
-                  class="px-5 py-2.5 rounded-full bg-card border border-border/50 shadow-soft text-sm font-medium"
-                  >Agile</span
-                >
-              </div>
-            </div>
-
-            <div>
-              <h3 class="text-xl font-semibold mb-6 text-center">
-                <span class="gradient-text">Tools</span> &amp; Others
-              </h3>
-              <div class="flex flex-wrap justify-center gap-3">
-                <span
-                  class="px-5 py-2.5 rounded-full gradient-bg text-primary-foreground text-sm font-medium shadow-soft"
-                  >Git</span
-                >
-                <span
-                  class="px-5 py-2.5 rounded-full gradient-bg text-primary-foreground text-sm font-medium shadow-soft"
-                  >Figma</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Experience -->
-      <section id="experience" class="section-padding bg-background">
-        <div class="container-custom mx-auto">
-          <div class="text-center mb-16">
-            <span
-              class="text-primary font-semibold text-sm tracking-wider uppercase mb-4 block"
-              >Career Path</span
-            >
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              Professional <br /><span class="gradient-text">Experience</span>
-            </h2>
-          </div>
-
-          <div class="max-w-3xl mx-auto relative">
-            <div
-              class="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-1/2"
-            ></div>
-
-            <!-- Item 1 -->
-            <div class="relative mb-12 md:pr-8 md:text-right md:w-1/2 pl-8 md:pl-0">
-              <div
-                class="absolute top-0 w-4 h-4 rounded-full gradient-bg border-4 border-background shadow-glow left-0 md:left-auto md:-right-2"
-              ></div>
-              <div
-                class="p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all"
-              >
-                <div class="mb-4 md:text-right">
-                  <div class="flex items-center gap-2 text-sm text-muted-foreground mb-2 md:justify-end">
-                    <i data-lucide="calendar" class="w-4 h-4"></i>
-                    <span>Dec 2024 – Present</span>
-                  </div>
-                  <h3 class="text-xl font-bold text-foreground">UI Developer</h3>
-                  <div class="flex items-center gap-2 text-primary font-medium md:justify-end">
-                    <i data-lucide="briefcase" class="w-4 h-4"></i>
-                    <span>The Knowledge Academy</span>
-                  </div>
-                </div>
-                <ul class="space-y-2 mb-4 md:text-right">
-                  <li class="text-sm text-muted-foreground">
-                    Created responsive web interfaces from Figma designs using HTML, CSS, JS, jQuery
-                  </li>
-                  <li class="text-sm text-muted-foreground">
-                    Improved UX for Moodle-based e-learning features like course enrollment and dashboards
-                  </li>
-                  <li class="text-sm text-muted-foreground">
-                    Implemented updates based on user feedback
-                  </li>
-                  <li class="text-sm text-muted-foreground">
-                    Collaborated closely with UI/UX designers
-                  </li>
-                  <li class="text-sm text-muted-foreground">
-                    Managed platform content via HTML Writer
-                  </li>
-                </ul>
-                <div class="flex flex-wrap gap-2 md:justify-end">
-                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">HTML5</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">CSS</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">JavaScript</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">jQuery</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">Bootstrap 5</span>
+          <div class="col-lg-6">
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="card-soft text-start h-100">
+                  <div class="icon-box mb-3"><i class="bi bi-code-slash"></i></div>
+                  <h6 class="fw-bold">Clean Code</h6>
+                  <p class="text-muted small mb-0">Writing maintainable, scalable code following best practices</p>
                 </div>
               </div>
-            </div>
-
-            <!-- Item 2 -->
-            <div class="relative mb-12 md:pl-8 md:ml-auto md:w-1/2 pl-8 md:pl-0">
-              <div
-                class="absolute top-0 w-4 h-4 rounded-full gradient-bg border-4 border-background shadow-glow left-0 md:-left-2"
-              ></div>
-              <div
-                class="p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all"
-              >
-                <div class="mb-4">
-                  <div class="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                    <i data-lucide="calendar" class="w-4 h-4"></i>
-                    <span>Sep 2023 – Sep 2024</span>
-                  </div>
-                  <h3 class="text-xl font-bold text-foreground">Frontend Developer</h3>
-                  <div class="flex items-center gap-2 text-primary font-medium">
-                    <i data-lucide="briefcase" class="w-4 h-4"></i>
-                    <span>Realtynow Pvt Ltd</span>
-                  </div>
-                </div>
-                <ul class="space-y-2 mb-4 text-left">
-                  <li class="text-sm text-muted-foreground">
-                    Built responsive interfaces from Figma for a real estate platform
-                  </li>
-                  <li class="text-sm text-muted-foreground">
-                    Improved UX for property filing, booking &amp; search
-                  </li>
-                  <li class="text-sm text-muted-foreground">
-                    Ensured design accuracy and responsiveness
-                  </li>
-                </ul>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">HTML5</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">CSS</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">JavaScript</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">jQuery</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">Bootstrap 5</span>
+              <div class="col-6">
+                <div class="card-soft text-start h-100">
+                  <div class="icon-box mb-3"><i class="bi bi-palette"></i></div>
+                  <h6 class="fw-bold">Pixel Perfect</h6>
+                  <p class="text-muted small mb-0">Converting Figma designs into flawless web interfaces</p>
                 </div>
               </div>
-            </div>
-
-            <!-- Item 3 -->
-            <div class="relative mb-12 md:pr-8 md:text-right md:w-1/2 pl-8 md:pl-0">
-              <div
-                class="absolute top-0 w-4 h-4 rounded-full gradient-bg border-4 border-background shadow-glow left-0 md:left-auto md:-right-2"
-              ></div>
-              <div
-                class="p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all"
-              >
-                <div class="mb-4 md:text-right">
-                  <div class="flex items-center gap-2 text-sm text-muted-foreground mb-2 md:justify-end">
-                    <i data-lucide="calendar" class="w-4 h-4"></i>
-                    <span>Jan 2022 – Sep 2023</span>
-                  </div>
-                  <h3 class="text-xl font-bold text-foreground">Frontend Developer</h3>
-                  <div class="flex items-center gap-2 text-primary font-medium md:justify-end">
-                    <i data-lucide="briefcase" class="w-4 h-4"></i>
-                    <span>Web Digital Mantra</span>
-                  </div>
-                </div>
-                <ul class="space-y-2 mb-4 md:text-right">
-                  <li class="text-sm text-muted-foreground">Built static &amp; dynamic websites</li>
-                  <li class="text-sm text-muted-foreground">
-                    Improved UX in collaboration with backend team
-                  </li>
-                  <li class="text-sm text-muted-foreground">
-                    Modified UI based on client feedback
-                  </li>
-                </ul>
-                <div class="flex flex-wrap gap-2 md:justify-end">
-                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">HTML</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">CSS</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">JavaScript</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">jQuery</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">Bootstrap 5</span>
+              <div class="col-6">
+                <div class="card-soft text-start h-100">
+                  <div class="icon-box mb-3"><i class="bi bi-lightning-charge"></i></div>
+                  <h6 class="fw-bold">Performance</h6>
+                  <p class="text-muted small mb-0">Optimizing for speed and excellent user experience</p>
                 </div>
               </div>
-            </div>
-
-            <!-- Item 4 -->
-            <div class="relative mb-0 md:pl-8 md:ml-auto md:w-1/2 pl-8 md:pl-0">
-              <div
-                class="absolute top-0 w-4 h-4 rounded-full gradient-bg border-4 border-background shadow-glow left-0 md:-left-2"
-              ></div>
-              <div
-                class="p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all"
-              >
-                <div class="mb-4">
-                  <div class="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                    <i data-lucide="calendar" class="w-4 h-4"></i>
-                    <span>May 2021 – Dec 2021</span>
-                  </div>
-                  <h3 class="text-xl font-bold text-foreground">Frontend Developer</h3>
-                  <div class="flex items-center gap-2 text-primary font-medium">
-                    <i data-lucide="briefcase" class="w-4 h-4"></i>
-                    <span>Infocampus Logics</span>
-                  </div>
-                </div>
-                <ul class="space-y-2 mb-4 text-left">
-                  <li class="text-sm text-muted-foreground">
-                    Created features using HTML, CSS, jQuery, React.js, Node.js, APIs
-                  </li>
-                  <li class="text-sm text-muted-foreground">
-                    Built cross-browser compatible websites
-                  </li>
-                  <li class="text-sm text-muted-foreground">
-                    Followed compliance standards for UI
-                  </li>
-                </ul>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">HTML</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">CSS</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">jQuery</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">React.js</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">Node.js</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">APIs</span>
+              <div class="col-6">
+                <div class="card-soft text-start h-100">
+                  <div class="icon-box mb-3"><i class="bi bi-people"></i></div>
+                  <h6 class="fw-bold">Collaboration</h6>
+                  <p class="text-muted small mb-0">Working effectively with designers and backend teams</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Projects -->
-      <section id="projects" class="section-padding gradient-hero">
-        <div class="container-custom mx-auto">
-          <div class="text-center mb-16">
-            <span
-              class="text-primary font-semibold text-sm tracking-wider uppercase mb-4 block"
-              >Portfolio</span
-            >
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              Featured <br /><span class="gradient-text">Projects</span>
-            </h2>
-            <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A selection of projects that showcase my frontend development expertise
-            </p>
-          </div>
-
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            <!-- Repeat cards -->
-            <article class="group h-full p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-500">
-              <div class="relative mb-6">
-                <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
-                  <i data-lucide="graduation-cap" class="w-7 h-7 text-primary-foreground"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-1 group-hover:gradient-text transition-all">The Knowledge Academy</h3>
-                <p class="text-sm text-primary font-medium mb-4">E-Learning LMS Platform</p>
-                <p class="text-muted-foreground text-sm leading-relaxed mb-6">
-                  Redesigned dashboards, quizzes, exam timers, course pages, and certificate layouts. Delivered major performance improvements and converted Figma designs into pixel-perfect UI.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-6">
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">HTML</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">CSS</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">JavaScript</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">jQuery</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Bootstrap</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Moodle</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">AJAX</span>
-                </div>
-                <a href="https://elearning.theknowledgeacademy.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all">
-                  View Details
-                  <i data-lucide="external-link" class="w-4 h-4"></i>
-                </a>
-              </div>
-            </article>
-
-            <article class="group h-full p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-500">
-              <div class="relative mb-6">
-                <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
-                  <i data-lucide="book-open" class="w-7 h-7 text-primary-foreground"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-1 group-hover:gradient-text transition-all">MPES E-Learning</h3>
-                <p class="text-sm text-primary font-medium mb-4">Professional Training LMS</p>
-                <p class="text-muted-foreground text-sm leading-relaxed mb-6">
-                  UI overhaul of course pages, dashboards, quizzes, and enrollment pages. Built responsive certificate designs and improved platform performance through CSS/JS optimization.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-6">
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">HTML5</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">CSS3</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">JavaScript</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">jQuery</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Bootstrap</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Moodle</span>
-                </div>
-                <a href="https://elearning.mpes.co.uk/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all">
-                  View Details
-                  <i data-lucide="external-link" class="w-4 h-4"></i>
-                </a>
-              </div>
-            </article>
-
-            <article class="group h-full p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-500">
-              <div class="relative mb-6">
-                <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
-                  <i data-lucide="building-2" class="w-7 h-7 text-primary-foreground"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-1 group-hover:gradient-text transition-all">Oakwood International</h3>
-                <p class="text-sm text-primary font-medium mb-4">Corporate Training LMS</p>
-                <p class="text-muted-foreground text-sm leading-relaxed mb-6">
-                  Redesigned course structure UI, sidebar navigation, dashboards, and quiz layout. Implemented exam timer UI and ensured cross-browser compatibility.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-6">
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">HTML5</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">CSS</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">JavaScript</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">jQuery</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">AJAX</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Bootstrap</span>
-                </div>
-                <a href="https://lms.oakwoodinternational.co.uk/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all">
-                  View Details
-                  <i data-lucide="external-link" class="w-4 h-4"></i>
-                </a>
-              </div>
-            </article>
-
-            <article class="group h-full p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-500">
-              <div class="relative mb-6">
-                <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
-                  <i data-lucide="award" class="w-7 h-7 text-primary-foreground"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-1 group-hover:gradient-text transition-all">Global Certification Board</h3>
-                <p class="text-sm text-primary font-medium mb-4">Online Examination System</p>
-                <p class="text-muted-foreground text-sm leading-relaxed mb-6">
-                  Designed exam-taking interface, question navigation, and timer UI. Improved accessibility, responsiveness, and enhanced certificate page layout.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-6">
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">HTML</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">CSS</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">JavaScript</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">jQuery</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Bootstrap</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Moodle</span>
-                </div>
-                <a href="https://exam.globalcertificationboard.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all">
-                  View Details
-                  <i data-lucide="external-link" class="w-4 h-4"></i>
-                </a>
-              </div>
-            </article>
-
-            <article class="group h-full p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-500">
-              <div class="relative mb-6">
-                <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
-                  <i data-lucide="file-text" class="w-7 h-7 text-primary-foreground"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-1 group-hover:gradient-text transition-all">24 Efiling</h3>
-                <p class="text-sm text-primary font-medium mb-4">Tax &amp; Compliance Platform</p>
-                <p class="text-muted-foreground text-sm leading-relaxed mb-6">
-                  Built user-facing website UI and admin panel for managing users &amp; service requests. Collaborated with PM &amp; clients for continuous improvements.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-6">
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">HTML</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">CSS</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">JavaScript</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">jQuery</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Bootstrap</span>
-                </div>
-                <a href="https://24efiling.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all">
-                  View Details
-                  <i data-lucide="external-link" class="w-4 h-4"></i>
-                </a>
-              </div>
-            </article>
-
-            <article class="group h-full p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-500">
-              <div class="relative mb-6">
-                <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
-                  <i data-lucide="home" class="w-7 h-7 text-primary-foreground"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-1 group-hover:gradient-text transition-all">RealtyNow</h3>
-                <p class="text-sm text-primary font-medium mb-4">Real Estate Platform</p>
-                <p class="text-muted-foreground text-sm leading-relaxed mb-6">
-                  Developed responsive UI for property listings, search filters, and booking forms. Optimized performance and ensured cross-device compatibility.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-6">
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">HTML5</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">CSS3</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">JavaScript</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">jQuery</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Bootstrap</span>
-                </div>
-                <a href="https://realtynow.in/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all">
-                  View Details
-                  <i data-lucide="external-link" class="w-4 h-4"></i>
-                </a>
-              </div>
-            </article>
-
-            <article class="group h-full p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-500">
-              <div class="relative mb-6">
-                <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
-                  <i data-lucide="heart" class="w-7 h-7 text-primary-foreground"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-1 group-hover:gradient-text transition-all">Happy U</h3>
-                <p class="text-sm text-primary font-medium mb-4">Health Booking &amp; Consultation Hub</p>
-                <p class="text-muted-foreground text-sm leading-relaxed mb-6">
-                  Developed responsive UI with performance optimization. Supported SEO implementation and backend integration for seamless user experience.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-6">
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">HTML</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">CSS</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">JavaScript</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">jQuery</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Bootstrap</span>
-                </div>
-                <a href="https://happyu.co.in/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all">
-                  View Details
-                  <i data-lucide="external-link" class="w-4 h-4"></i>
-                </a>
-              </div>
-            </article>
-
-            <article class="group h-full p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-500">
-              <div class="relative mb-6">
-                <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
-                  <i data-lucide="car" class="w-7 h-7 text-primary-foreground"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-1 group-hover:gradient-text transition-all">MyDriver</h3>
-                <p class="text-sm text-primary font-medium mb-4">Driver Booking &amp; Fleet Management</p>
-                <p class="text-muted-foreground text-sm leading-relaxed mb-6">
-                  Built admin UI screens for driver management, customer records, and booking workflows. Designed responsive dashboards with metrics and charts.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-6">
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">HTML5</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">CSS3</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Bootstrap 5</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">JavaScript</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">jQuery</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">AJAX</span>
-                </div>
-                <a href="https://mydriver.co.in/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all">
-                  View Details
-                  <i data-lucide="external-link" class="w-4 h-4"></i>
-                </a>
-              </div>
-            </article>
-
-            <article class="group h-full p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-500">
-              <div class="relative mb-6">
-                <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
-                  <i data-lucide="factory" class="w-7 h-7 text-primary-foreground"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-1 group-hover:gradient-text transition-all">Prakash Enterprises</h3>
-                <p class="text-sm text-primary font-medium mb-4">Industrial Supplier Website</p>
-                <p class="text-muted-foreground text-sm leading-relaxed mb-6">
-                  Built responsive pages with interactive components. Ensured mobile-friendly layouts using media queries for optimal viewing across devices.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-6">
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">HTML5</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">CSS</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Bootstrap</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">JavaScript</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">jQuery</span>
-                </div>
-              </div>
-            </article>
-
-            <article class="group h-full p-6 rounded-2xl bg-card border border-border/50 shadow-card transition-all duration-500">
-              <div class="relative mb-6">
-                <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center shadow-glow group-hover:scale-110 transition-transform">
-                  <i data-lucide="plane" class="w-7 h-7 text-primary-foreground"></i>
-                </div>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-1 group-hover:gradient-text transition-all">Docomo Holidays</h3>
-                <p class="text-sm text-primary font-medium mb-4">Travel &amp; Holiday Booking Platform</p>
-                <p class="text-muted-foreground text-sm leading-relaxed mb-6">
-                  Designed and built the entire UI for holiday packages, cruise listings, hotel pages, and booking workflows with interactive components.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-6">
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">HTML5</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">CSS3</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">Bootstrap</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">JavaScript</span>
-                  <span class="px-3 py-1 rounded-full bg-secondary/50 text-secondary-foreground text-xs font-medium">jQuery</span>
-                </div>
-              </div>
-            </article>
+    <!-- Skills -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">My Skills</div>
+          <h2>
+            Technologies & Tools <br />
+            <span class="gradient-text">I Work With</span>
+          </h2>
+          <p>A comprehensive toolkit built over 4+ years of frontend development experience</p>
+        </div>
+        <div class="text-center mb-4">
+          <h6 class="fw-bold mb-3"><span class="gradient-text">Frontend</span> Development</h6>
+          <div>
+            <span class="pill">React.js</span>
+            <span class="pill">TypeScript</span>
+            <span class="pill">ES6</span>
+            <span class="pill">HTML5</span>
+            <span class="pill">CSS3</span>
+            <span class="pill">Bootstrap</span>
+            <span class="pill">JavaScript</span>
+            <span class="pill">jQuery</span>
+            <span class="pill">AJAX</span>
+            <span class="pill">JSON</span>
+            <span class="pill">Axios</span>
+            <span class="pill">APIs</span>
+            <span class="pill">Responsive Design</span>
+            <span class="pill">OOP</span>
+            <span class="pill">Agile</span>
           </div>
         </div>
-      </section>
-
-      <!-- Education -->
-      <section id="education" class="section-padding bg-background">
-        <div class="container-custom mx-auto">
-          <div class="text-center mb-16">
-            <span
-              class="text-primary font-semibold text-sm tracking-wider uppercase mb-4 block"
-              >Education</span
-            >
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              Academic <br /><span class="gradient-text">Background</span>
-            </h2>
+        <div class="text-center">
+          <h6 class="fw-bold mb-3"><span class="gradient-text">Tools</span> & Others</h6>
+          <div>
+            <span class="pill" style="background:#6a4bff;color:#fff">Git</span>
+            <span class="pill" style="background:#6a4bff;color:#fff">Figma</span>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="max-w-2xl mx-auto">
-            <div class="p-8 rounded-2xl bg-card border border-border/50 shadow-card">
-              <div
-                class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center shadow-glow mb-6 mx-auto"
-              >
-                <i data-lucide="graduation-cap" class="w-8 h-8 text-primary-foreground"></i>
+    <!-- Experience -->
+    <section id="experience" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Career Path</div>
+          <h2>
+            Professional <br />
+            <span class="gradient-text">Experience</span>
+          </h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="card-soft">
+              <div class="d-flex flex-wrap gap-2 align-items-center text-muted small mb-2">
+                <i class="bi bi-calendar"></i>
+                <span>Dec 2024 – Present</span>
               </div>
-              <h3 class="text-2xl font-bold text-center mb-2">
-                Bachelor of Engineering (B.E)
-              </h3>
-              <div class="flex items-center justify-center gap-2 text-primary font-medium mb-4">
-                <i data-lucide="building-2" class="w-5 h-5"></i>
-                <span>Alva's Institute of Engineering &amp; Technology</span>
+              <h5 class="fw-bold mb-1">UI Developer</h5>
+              <a href="#" class="text-decoration-none text-primary fw-semibold mb-2 d-block">The Knowledge Academy</a>
+              <ul class="text-muted small ps-3 mb-3">
+                <li>Created responsive web interfaces from Figma designs using HTML, CSS, JS, jQuery</li>
+                <li>Improved UX for Moodle-based e-learning features</li>
+                <li>Implemented updates based on user feedback</li>
+                <li>Collaborated closely with UI/UX designers</li>
+                <li>Managed platform content via HTML Writer</li>
+              </ul>
+              <div>
+                <span class="pill">HTML5</span><span class="pill">CSS</span><span class="pill">JavaScript</span
+                ><span class="pill">jQuery</span><span class="pill">Bootstrap 5</span>
               </div>
-              <p class="text-center text-muted-foreground mb-4">
-                Mangalore, Karnataka
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="card-soft">
+              <div class="d-flex flex-wrap gap-2 align-items-center text-muted small mb-2">
+                <i class="bi bi-calendar"></i>
+                <span>Sep 2023 – Sep 2024</span>
+              </div>
+              <h5 class="fw-bold mb-1">Frontend Developer</h5>
+              <a href="#" class="text-decoration-none text-primary fw-semibold mb-2 d-block">Realtynow Pvt Ltd</a>
+              <ul class="text-muted small ps-3 mb-3">
+                <li>Built responsive interfaces from Figma for a real estate platform</li>
+                <li>Improved UX for property filing, booking & search</li>
+                <li>Ensured design accuracy and responsiveness</li>
+              </ul>
+              <div>
+                <span class="pill">HTML5</span><span class="pill">CSS</span><span class="pill">JavaScript</span
+                ><span class="pill">jQuery</span><span class="pill">Bootstrap 5</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="card-soft">
+              <div class="d-flex flex-wrap gap-2 align-items-center text-muted small mb-2">
+                <i class="bi bi-calendar"></i>
+                <span>Jan 2022 – Sep 2023</span>
+              </div>
+              <h5 class="fw-bold mb-1">Frontend Developer</h5>
+              <a href="#" class="text-decoration-none text-primary fw-semibold mb-2 d-block">Web Digital Mantra</a>
+              <ul class="text-muted small ps-3 mb-3">
+                <li>Built static & dynamic websites</li>
+                <li>Improved UX in collaboration with backend team</li>
+                <li>Modified UI based on client feedback</li>
+              </ul>
+              <div>
+                <span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span
+                ><span class="pill">jQuery</span><span class="pill">Bootstrap 5</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="card-soft">
+              <div class="d-flex flex-wrap gap-2 align-items-center text-muted small mb-2">
+                <i class="bi bi-calendar"></i>
+                <span>May 2021 – Dec 2021</span>
+              </div>
+              <h5 class="fw-bold mb-1">Frontend Developer</h5>
+              <a href="#" class="text-decoration-none text-primary fw-semibold mb-2 d-block">Infocampus Logics</a>
+              <ul class="text-muted small ps-3 mb-3">
+                <li>Created features using HTML, CSS, jQuery, React.js, Node.js, APIs</li>
+                <li>Built cross-browser compatible websites</li>
+                <li>Followed compliance standards for UI</li>
+              </ul>
+              <div>
+                <span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">jQuery</span
+                ><span class="pill">React.js</span><span class="pill">Node.js</span><span class="pill">APIs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Portfolio</div>
+          <h2>
+            Featured <br />
+            <span class="gradient-text">Projects</span>
+          </h2>
+          <p>A selection of projects that showcase my frontend development expertise</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="card-soft h-100 project-card">
+              <div class="icon-box mb-3"><i class="bi bi-mortarboard"></i></div>
+              <h5 class="fw-bold">The Knowledge Academy</h5>
+              <div class="text-primary fw-semibold small mb-2">E-Learning LMS Platform</div>
+              <p class="text-muted small">
+                Redesigned dashboards, quizzes, exam timers, course pages, and certificate layouts. Delivered major performance improvements and converted Figma designs into pixel-perfect UI.
               </p>
-              <div class="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-6">
-                <i data-lucide="calendar" class="w-4 h-4"></i>
-                <span>2017 – 2021</span>
+              <div class="mb-3">
+                <span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span
+                ><span class="pill">jQuery</span><span class="pill">Bootstrap</span><span class="pill">Moodle</span
+                ><span class="pill">AJAX</span>
               </div>
-              <div class="pt-6 border-t border-border/50">
-                <p class="text-center text-sm text-muted-foreground">
-                  <span class="font-medium text-foreground">University:</span>
-                  Visvesvaraya Technological University (VTU), Belgaum
-                </p>
+              <a class="text-primary fw-semibold small" href="https://elearning.theknowledgeacademy.com" target="_blank"
+                >View Details <i class="bi bi-box-arrow-up-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card-soft h-100 project-card">
+              <div class="icon-box mb-3"><i class="bi bi-journal-bookmark"></i></div>
+              <h5 class="fw-bold">MPES E-Learning</h5>
+              <div class="text-primary fw-semibold small mb-2">Professional Training LMS</div>
+              <p class="text-muted small">
+                UI overhaul of course pages, dashboards, quizzes, and enrollment pages. Built responsive certificate designs and improved platform performance through CSS/JS optimization.
+              </p>
+              <div class="mb-3">
+                <span class="pill">HTML5</span><span class="pill">CSS3</span><span class="pill">JavaScript</span
+                ><span class="pill">jQuery</span><span class="pill">Bootstrap</span><span class="pill">Moodle</span>
+              </div>
+              <a class="text-primary fw-semibold small" href="https://elearning.mpes.co.uk/" target="_blank"
+                >View Details <i class="bi bi-box-arrow-up-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card-soft h-100 project-card">
+              <div class="icon-box mb-3"><i class="bi bi-building"></i></div>
+              <h5 class="fw-bold">Oakwood International</h5>
+              <div class="text-primary fw-semibold small mb-2">Corporate Training LMS</div>
+              <p class="text-muted small">
+                Redesigned course structure UI, sidebar navigation, dashboards, and quiz layout. Implemented exam timer UI and ensured cross-browser compatibility.
+              </p>
+              <div class="mb-3">
+                <span class="pill">HTML5</span><span class="pill">CSS</span><span class="pill">JavaScript</span
+                ><span class="pill">jQuery</span><span class="pill">AJAX</span><span class="pill">Bootstrap</span>
+              </div>
+              <a class="text-primary fw-semibold small" href="https://lms.oakwoodinternational.co.uk/" target="_blank"
+                >View Details <i class="bi bi-box-arrow-up-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card-soft h-100 project-card">
+              <div class="icon-box mb-3"><i class="bi bi-award"></i></div>
+              <h5 class="fw-bold">Global Certification Board</h5>
+              <div class="text-primary fw-semibold small mb-2">Online Examination System</div>
+              <p class="text-muted small">
+                Designed exam-taking interface, question navigation, and timer UI. Improved accessibility, responsiveness, and enhanced certificate page layout.
+              </p>
+              <div class="mb-3">
+                <span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span
+                ><span class="pill">jQuery</span><span class="pill">Bootstrap</span><span class="pill">Moodle</span>
+              </div>
+              <a class="text-primary fw-semibold small" href="https://exam.globalcertificationboard.com/" target="_blank"
+                >View Details <i class="bi bi-box-arrow-up-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card-soft h-100 project-card">
+              <div class="icon-box mb-3"><i class="bi bi-airplane"></i></div>
+              <h5 class="fw-bold">Docomo Holidays</h5>
+              <div class="text-primary fw-semibold small mb-2">Travel & Holiday Booking Platform</div>
+              <p class="text-muted small">
+                Designed and built the entire UI for holiday packages, cruise listings, hotel pages, and booking workflows with interactive components.
+              </p>
+              <div class="mb-3">
+                <span class="pill">HTML5</span><span class="pill">CSS3</span><span class="pill">Bootstrap</span
+                ><span class="pill">JavaScript</span><span class="pill">jQuery</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card-soft h-100 project-card">
+              <div class="icon-box mb-3"><i class="bi bi-file-earmark-text"></i></div>
+              <h5 class="fw-bold">24 Efiling</h5>
+              <div class="text-primary fw-semibold small mb-2">Tax & Compliance Platform</div>
+              <p class="text-muted small">
+                Built user-facing website UI and admin panel for managing users & service requests. Collaborated with PM & clients for continuous improvements.
+              </p>
+              <div class="mb-3">
+                <span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span
+                ><span class="pill">jQuery</span><span class="pill">Bootstrap</span>
+              </div>
+              <a class="text-primary fw-semibold small" href="https://24efiling.com" target="_blank"
+                >View Details <i class="bi bi-box-arrow-up-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card-soft h-100 project-card">
+              <div class="icon-box mb-3"><i class="bi bi-house-door"></i></div>
+              <h5 class="fw-bold">RealtyNow</h5>
+              <div class="text-primary fw-semibold small mb-2">Real Estate Platform</div>
+              <p class="text-muted small">
+                Developed responsive UI for property listings, search filters, and booking forms. Optimized performance and ensured cross-device compatibility.
+              </p>
+              <div class="mb-3">
+                <span class="pill">HTML5</span><span class="pill">CSS3</span><span class="pill">JavaScript</span
+                ><span class="pill">jQuery</span><span class="pill">Bootstrap</span>
+              </div>
+              <a class="text-primary fw-semibold small" href="https://realtynow.in/" target="_blank"
+                >View Details <i class="bi bi-box-arrow-up-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card-soft h-100 project-card">
+              <div class="icon-box mb-3"><i class="bi bi-car-front"></i></div>
+              <h5 class="fw-bold">MyDriver</h5>
+              <div class="text-primary fw-semibold small mb-2">Driver Booking & Fleet Management</div>
+              <p class="text-muted small">
+                Built admin UI screens for driver management, customer records, and booking workflows. Designed responsive dashboards with metrics and charts.
+              </p>
+              <div class="mb-3">
+                <span class="pill">HTML5</span><span class="pill">CSS3</span><span class="pill">Bootstrap 5</span
+                ><span class="pill">JavaScript</span><span class="pill">jQuery</span><span class="pill">AJAX</span>
+              </div>
+              <a class="text-primary fw-semibold small" href="https://mydriver.co.in/" target="_blank"
+                >View Details <i class="bi bi-box-arrow-up-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card-soft h-100 project-card">
+              <div class="icon-box mb-3"><i class="bi bi-heart"></i></div>
+              <h5 class="fw-bold">Happy U</h5>
+              <div class="text-primary fw-semibold small mb-2">Health Booking & Consultation Hub</div>
+              <p class="text-muted small">
+                Developed responsive UI with performance optimization. Supported SEO implementation and backend integration for seamless user experience.
+              </p>
+              <div class="mb-3">
+                <span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span
+                ><span class="pill">jQuery</span><span class="pill">Bootstrap</span>
+              </div>
+              <a class="text-primary fw-semibold small" href="https://happyu.co.in/" target="_blank"
+                >View Details <i class="bi bi-box-arrow-up-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card-soft h-100 project-card">
+              <div class="icon-box mb-3"><i class="bi bi-building-gear"></i></div>
+              <h5 class="fw-bold">Prakash Enterprises</h5>
+              <div class="text-primary fw-semibold small mb-2">Industrial Supplier Website</div>
+              <p class="text-muted small">
+                Built responsive pages with interactive components. Ensured mobile-friendly layouts using media queries for optimal viewing across devices.
+              </p>
+              <div class="mb-3">
+                <span class="pill">HTML5</span><span class="pill">CSS</span><span class="pill">Bootstrap</span
+                ><span class="pill">JavaScript</span><span class="pill">jQuery</span>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Contact -->
-      <section id="contact" class="section-padding gradient-hero">
-        <div class="container-custom mx-auto">
-          <div class="text-center mb-16">
-            <span
-              class="text-primary font-semibold text-sm tracking-wider uppercase mb-4 block"
-              >Get In Touch</span
-            >
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              Let's Work <br /><span class="gradient-text">Together</span>
-            </h2>
-            <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Have a project in mind? I'd love to hear about it. Feel free to reach out!
-            </p>
+    <!-- Education -->
+    <section id="education" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Education</div>
+          <h2>
+            Academic <br />
+            <span class="gradient-text">Background</span>
+          </h2>
+        </div>
+        <div class="card-soft text-center mx-auto" style="max-width: 640px">
+          <div class="icon-box mb-3"><i class="bi bi-mortarboard-fill"></i></div>
+          <h5 class="fw-bold">Bachelor of Engineering (B.E)</h5>
+          <a class="text-primary fw-semibold d-block mb-2" href="#">Alva's Institute of Engineering & Technology</a>
+          <p class="text-muted mb-1">Mangalore, Karnataka</p>
+          <div class="text-muted small mb-3 d-inline-flex align-items-center gap-2">
+            <i class="bi bi-calendar"></i> 2017 – 2021
           </div>
+          <hr />
+          <p class="text-muted mb-0"><strong class="text-dark">University:</strong> Visvesvaraya Technological University (VTU), Belgaum</p>
+        </div>
+      </div>
+    </section>
 
-          <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-5xl mx-auto">
-            <div class="space-y-6">
-              <h3 class="text-2xl font-bold mb-8">Contact Information</h3>
-
-              <div
-                class="flex items-start gap-4 p-4 rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 hover:shadow-soft transition-all duration-300"
-              >
-                <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center shrink-0">
-                  <i data-lucide="mail" class="w-5 h-5 text-primary-foreground"></i>
-                </div>
-                <div>
-                  <p class="text-sm text-muted-foreground mb-1">Email</p>
-                  <a href="mailto:melodynaorem11@gmail.com" class="font-medium hover:text-primary transition-colors">melodynaorem11@gmail.com</a>
-                </div>
-              </div>
-
-              <div
-                class="flex items-start gap-4 p-4 rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 hover:shadow-soft transition-all duration-300"
-              >
-                <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center shrink-0">
-                  <i data-lucide="phone" class="w-5 h-5 text-primary-foreground"></i>
-                </div>
-                <div>
-                  <p class="text-sm text-muted-foreground mb-1">Phone</p>
-                  <a href="tel:+919366207742" class="font-medium hover:text-primary transition-colors">+91 9366207742</a>
-                </div>
-              </div>
-
-              <div
-                class="flex items-start gap-4 p-4 rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 hover:shadow-soft transition-all duration-300"
-              >
-                <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center shrink-0">
-                  <i data-lucide="map-pin" class="w-5 h-5 text-primary-foreground"></i>
-                </div>
-                <div>
-                  <p class="text-sm text-muted-foreground mb-1">Location</p>
-                  <p class="font-medium">Bengaluru, Karnataka</p>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-3 pt-4">
-                <i data-lucide="check-circle" class="w-5 h-5 text-primary"></i>
-                <span class="text-muted-foreground">
-                  Currently available for new opportunities
-                </span>
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Get In Touch</div>
+          <h2>
+            Let's Work <br />
+            <span class="gradient-text">Together</span>
+          </h2>
+          <p>Have a project in mind? I'd love to hear about it. Feel free to reach out!</p>
+        </div>
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-5">
+            <div class="contact-card mb-3 d-flex align-items-center gap-3">
+              <div class="icon-box" style="width: 46px; height: 46px"><i class="bi bi-envelope"></i></div>
+              <div>
+                <p class="mb-0 text-muted small">Email</p>
+                <a class="fw-semibold" href="mailto:melodynaorem11@gmail.com">melodynaorem11@gmail.com</a>
               </div>
             </div>
-
-            <div>
-              <form
-                id="contact-form"
-                class="p-8 rounded-2xl bg-card border border-border/50 shadow-card space-y-4"
-              >
-                <div class="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label class="block text-sm font-medium mb-2" for="name"
-                      >Name</label
-                    >
-                    <input
-                      class="w-full px-4 py-3 rounded-lg bg-background border border-input focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                      id="name"
-                      name="name"
-                      required
-                      placeholder="Your name"
-                    />
+            <div class="contact-card mb-3 d-flex align-items-center gap-3">
+              <div class="icon-box" style="width: 46px; height: 46px"><i class="bi bi-telephone"></i></div>
+              <div>
+                <p class="mb-0 text-muted small">Phone</p>
+                <a class="fw-semibold" href="tel:+919366207742">+91 9366207742</a>
+              </div>
+            </div>
+            <div class="contact-card mb-3 d-flex align-items-center gap-3">
+              <div class="icon-box" style="width: 46px; height: 46px"><i class="bi bi-geo-alt"></i></div>
+              <div>
+                <p class="mb-0 text-muted small">Location</p>
+                <span class="fw-semibold">Bengaluru, Karnataka</span>
+              </div>
+            </div>
+            <div class="d-flex align-items-center gap-2 text-muted mt-3">
+              <i class="bi bi-check-circle text-primary"></i> Currently available for new opportunities
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-soft">
+              <form id="contactForm">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold">Name</label>
+                    <input type="text" class="form-control form-control-lg" name="name" required placeholder="Your name" />
                   </div>
-                  <div>
-                    <label class="block text-sm font-medium mb-2" for="email"
-                      >Email</label
-                    >
-                    <input
-                      type="email"
-                      class="w-full px-4 py-3 rounded-lg bg-background border border-input focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                      id="email"
-                      name="email"
-                      required
-                      placeholder="your@email.com"
-                    />
+                  <div class="col-md-6">
+                    <label class="form-label fw-semibold">Email</label>
+                    <input type="email" class="form-control form-control-lg" name="email" required placeholder="your@email.com" />
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-semibold">Subject</label>
+                    <input type="text" class="form-control form-control-lg" name="subject" required placeholder="What's this about?" />
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label fw-semibold">Message</label>
+                    <textarea class="form-control" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
+                  </div>
+                  <div class="col-12">
+                    <button class="btn btn-cta w-100 d-flex align-items-center justify-content-center gap-2" type="submit">
+                      Send Message <i class="bi bi-send"></i>
+                    </button>
                   </div>
                 </div>
-
-                <div>
-                  <label class="block text-sm font-medium mb-2" for="subject"
-                    >Subject</label
-                  >
-                  <input
-                    class="w-full px-4 py-3 rounded-lg bg-background border border-input focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                    id="subject"
-                    name="subject"
-                    required
-                    placeholder="What's this about?"
-                  />
-                </div>
-
-                <div>
-                  <label class="block text-sm font-medium mb-2" for="message"
-                    >Message</label
-                  >
-                  <textarea
-                    class="w-full px-4 py-3 rounded-lg bg-background border border-input focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
-                    id="message"
-                    name="message"
-                    rows="5"
-                    required
-                    placeholder="Tell me about your project..."
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  class="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-primary text-primary-foreground px-4 py-3 font-semibold shadow-soft hover:shadow-elevated transition-all"
-                  id="submit-btn"
-                >
-                  Send Message
-                  <i data-lucide="send" class="w-4 h-4"></i>
-                </button>
               </form>
             </div>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
 
-    <!-- Footer -->
-    <footer class="py-8 bg-background border-t border-border/50">
-      <div class="container-custom mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          class="flex flex-col sm:flex-row items-center justify-between gap-4"
-        >
-          <a href="#top" class="text-xl font-bold gradient-text">Melody.</a>
-          <p class="text-sm text-muted-foreground flex items-center gap-1">
-            © <span id="year"></span> Melody Naorem. Made with
-            <i data-lucide="heart" class="w-4 h-4 text-primary fill-primary"></i>
-            in Bengaluru
-          </p>
-          <div class="flex items-center gap-6">
-            <a
-              href="#about"
-              class="text-sm text-muted-foreground hover:text-primary transition-colors"
-              >About</a
-            >
-            <a
-              href="#projects"
-              class="text-sm text-muted-foreground hover:text-primary transition-colors"
-              >Projects</a
-            >
-            <a
-              href="#contact"
-              class="text-sm text-muted-foreground hover:text-primary transition-colors"
-              >Contact</a
-            >
-          </div>
+    <footer class="footer">
+      <div class="container d-flex flex-column flex-sm-row align-items-center justify-content-between">
+        <a class="fw-bold gradient-text" href="#top">Melody</a>
+         <div class="d-flex gap-3 small">
+          <a href="#about" class="text-muted text-decoration-none">About</a>
+          <a href="#projects" class="text-muted text-decoration-none">Projects</a>
+          <a href="#contact" class="text-muted text-decoration-none">Contact</a>
         </div>
       </div>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
     <script>
-      // Icons
-      lucide.createIcons();
-
-      // Navbar behavior
-      const navbar = document.getElementById("navbar");
-      const mobileMenuButton = document.getElementById("mobile-menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const navLinks = document.querySelectorAll(".nav-link");
-
-      const sections = [
-        { id: "about", label: "About" },
-        { id: "skills", label: "Skills" },
-        { id: "experience", label: "Experience" },
-        { id: "projects", label: "Projects" },
-        { id: "education", label: "Education" },
-        { id: "contact", label: "Contact" },
-      ];
-
-      function closeMenu() {
-        mobileMenu.style.maxHeight = "0px";
-      }
-
-      function openMenu() {
-        mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
-      }
-
-      mobileMenuButton.addEventListener("click", () => {
-        const isOpen = mobileMenu.style.maxHeight && mobileMenu.style.maxHeight !== "0px";
-        if (isOpen) {
-          closeMenu();
-          mobileMenuButton.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
-        } else {
-          openMenu();
-          mobileMenuButton.innerHTML = '<i data-lucide="x" class="w-6 h-6"></i>';
-        }
-        lucide.createIcons();
-      });
-
-      navLinks.forEach((link) => {
-        link.addEventListener("click", (e) => {
-          const text = e.target.textContent.trim();
-          const target = sections.find((s) => s.label === text);
-          if (target) {
-            document.getElementById(target.id)?.scrollIntoView({ behavior: "smooth" });
+      // Smooth scroll + active link handling
+      $(function () {
+        const navLinks = $(".nav-link-custom");
+        navLinks.on("click", function (e) {
+          e.preventDefault();
+          const target = $(this).attr("href");
+          const el = $(target);
+          if (el.length) {
+            $("html, body").animate({ scrollTop: el.offset().top - 80 }, 400);
           }
-          closeMenu();
-          mobileMenuButton.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
-          lucide.createIcons();
         });
-      });
 
-      window.addEventListener("scroll", () => {
-        const scrolled = window.scrollY > 50;
-        if (scrolled) {
-          navbar.classList.add("glass-strong", "py-3", "shadow-soft");
-          navbar.classList.remove("py-5");
-        } else {
-          navbar.classList.remove("glass-strong", "shadow-soft");
-          navbar.classList.add("py-5");
-        }
-
-        const fromTop = window.scrollY + 160;
-        sections.forEach((section) => {
-          const element = document.getElementById(section.id);
-          if (!element) return;
-          const offsetTop = element.offsetTop;
-          if (fromTop >= offsetTop) {
-            navLinks.forEach((link) => link.classList.remove("text-primary", "bg-primary/10"));
-            navLinks.forEach((link) => link.classList.add("text-muted-foreground"));
-            const active = Array.from(navLinks).find(
-              (link) => link.textContent.trim() === section.label
-            );
-            if (active) {
-              active.classList.remove("text-muted-foreground");
-              active.classList.add("text-primary", "bg-primary/10");
+        $(window).on("scroll", function () {
+          const fromTop = $(this).scrollTop() + 100;
+          navLinks.removeClass("active");
+          navLinks.each(function () {
+            const target = $($(this).attr("href"));
+            if (target.length && target.offset().top <= fromTop) {
+              $(this).addClass("active");
             }
-          }
+          });
         });
+
+        // Contact form -> WhatsApp redirect
+        $("#contactForm").on("submit", function (e) {
+          e.preventDefault();
+          const data = $(this).serializeArray().reduce((acc, cur) => ({ ...acc, [cur.name]: cur.value }), {});
+          const msg = `New Portfolio Enquiry:%0A%0AName: ${data.name}%0AEmail: ${data.email}%0ASubject: ${data.subject}%0AMessage: ${data.message}`;
+          const url = `https://wa.me/919366207742?text=${msg}`;
+          window.location.href = url;
+        });
+
+        $("#year").text(new Date().getFullYear());
       });
-
-      // Contact form -> WhatsApp redirect
-      const form = document.getElementById("contact-form");
-      const submitBtn = document.getElementById("submit-btn");
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Sending...";
-
-        const name = form.name.value;
-        const email = form.email.value;
-        const subject = form.subject.value;
-        const message = form.message.value;
-
-        const whatsappNumber = "919366207742";
-        const whatsappMessage = `New Portfolio Enquiry:\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`;
-        const encoded = encodeURIComponent(whatsappMessage);
-        const url = `https://wa.me/${whatsappNumber}?text=${encoded}`;
-
-        window.location.href = url;
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Send Message";
-      });
-
-      // Year
-      document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </body>
 </html>
