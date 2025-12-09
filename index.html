@@ -4,548 +4,63 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Melody Naorem | Front End & UI Developer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    />
-    <style>
-      :root {
-        --bg: #f7f6ff;
-        --fg: #1f1b2d;
-        --primary: #6a4bff;
-        --primary-2: #3772ff;
-        --accent: #3772ff;
-        --muted: #6c6a7a;
-        --card: #ffffff;
-        --border: #ebe8f5;
-        --radius: 22px;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        scroll-behavior: smooth;
-        scroll-padding-top: 80px;
-        background-attachment: fixed;
-        font-family: "Plus Jakarta Sans", sans-serif;
-        background: radial-gradient(circle at 10% 10%, #f0edff 0, #f7f8ff 35%, #f6f6ff 70%, #f7f6ff 100%);
-        color: var(--fg);
-        margin: 0;
-        scroll-behavior: smooth;
-      }
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-      nav.navbar {
-        padding: 18px 0;
-        backdrop-filter: blur(14px);
-        background: rgba(255, 255, 255, 0.92);
-        border-bottom: 1px solid var(--border);
-      }
-      .nav-link-custom {
-        padding: 10px 16px;
-        border-radius: 14px;
-        color: #6a6a85;
-        font-weight: 600;
-        transition: all 0.2s ease;
-      }
-      .nav-link-custom.active,
-      .nav-link-custom:hover {
-        color: var(--primary);
-        background: #efeaff;
-      }
-      .btn-cta {
-        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
-        color: #fff;
-        border: none;
-        border-radius: 14px;
-        padding: 10px 18px;
-        font-weight: 700;
-        box-shadow: 0 14px 32px rgba(106, 75, 255, 0.35);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-      .btn-cta:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 16px 34px rgba(55, 114, 255, 0.35);
-      }
-      .btn-outline {
-        border: 1px solid rgba(106, 75, 255, 0.4);
-        color: var(--primary);
-        padding: 10px 16px;
-        border-radius: 14px;
-        font-weight: 700;
-        background: rgba(106, 75, 255, 0.06);
-      }
-      .btn-outline:hover {
-        background: rgba(106, 75, 255, 0.12);
-      }
-      .section {
-        padding: 70px 0;
-      }
-      .gradient-text {
-        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
-        -webkit-background-clip: text;
-        color: transparent;
-      }
-      .card-soft {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        box-shadow: 0 22px 48px rgba(70, 64, 222, 0.1);
-        padding: 20px;
-      }
-      .tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 10px 14px;
-        border-radius: 18px;
-        background: #efeaff;
-        color: var(--primary);
-        font-weight: 600;
-        font-size: 13px;
-        box-shadow: inset 0 0 0 1px rgba(106, 75, 255, 0.12);
-      }
-      .pill {
-        display: inline-block;
-        padding: 7px 13px;
-        border-radius: 999px;
-        background: #f4f1ff;
-        color: #6a6a85;
-        font-weight: 600;
-        font-size: 12px;
-        margin: 4px;
-        border: 1px solid rgba(106, 75, 255, 0.08);
-      }
-      .hero {
-        position: relative;
-        overflow: hidden;
-        padding-top: 90px;
-        padding-bottom: 50px;
-        background: radial-gradient(circle at 20% 20%, rgba(106, 75, 255, 0.18), transparent 30%),
-          radial-gradient(circle at 80% 10%, rgba(55, 114, 255, 0.18), transparent 28%),
-          radial-gradient(circle at 50% 75%, rgba(92, 66, 255, 0.12), transparent 40%),
-          #f7f6ff;
-      }
-      .hero::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(247, 247, 255, 0.95) 100%);
-        pointer-events: none;
-      }
-      .hero-content {
-        position: relative;
-        z-index: 1;
-      }
-      .section-heading {
-        text-align: center;
-        margin-bottom: 64px;
-      }
-      .section-heading .eyebrow {
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        font-weight: 800;
-        color: var(--primary);
-        font-size: 12px;
-      }
-      .section-heading h2 {
-        font-size: clamp(26px, 3vw, 34px);
-        font-weight: 800;
-        margin: 12px 0;
-        line-height: 1.15;
-      }
-      .section-heading p {
-        color: var(--muted);
-        max-width: 760px;
-        margin: 0 auto;
-      }
-      /* EXPERIENCE TIMELINE – upgraded with animations, glow, spacing */
-      .timeline {
-        position: relative;
-        padding: 40px 0;
-        margin: 0 auto;
-        max-width: 900px;
-        display: flex;
-        flex-direction: column;
-        gap: 70px;
-      }
-
-      .timeline::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 2px;
-        background: linear-gradient(180deg, #e8e4ff, #d7e4ff);
-      }
-
-      .timeline-item {
-        position: relative;
-        padding-top: 10px;
-        animation: fadeUp 0.9s ease forwards;
-        opacity: 0;
-      }
-      .timeline-item.left {
-        text-align: right;
-      }
-      .timeline-item.right {
-        text-align: left;
-      }
-
-      .timeline-item.left .card-soft { margin-right: auto; }
-      .timeline-item.right .card-soft { margin-left: auto; }
-
-      .timeline-item .card-soft {
-        width: 100%;
-        max-width: 420px;
-        border-radius: 22px;
-        box-shadow: 0 14px 34px rgba(70, 64, 222, 0.10);
-        padding: 24px;
-      }
-
-      /* === ADVANCED ANIMATION V2 === */
-      .timeline-item.visible {
-        animation: floatUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      }
-
-      @keyframes floatUp {
-        0% { opacity: 0; transform: translateY(60px) scale(0.98); }
-        40% { transform: translateY(20px) scale(1.01); }
-        70% { transform: translateY(0px) scale(0.995); }
-        100% { opacity: 1; transform: translateY(0px) scale(1); }
-      }
-
-      /* Dot shockwave */
-      .timeline-dot.visible {
-        position: absolute;
-      }
-      .timeline-dot.visible::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: 50%;
-        border: 2px solid rgba(116, 92, 255, 0.45);
-        animation: shockwave 1.3s ease-out forwards;
-      }
-
-      @keyframes shockwave {
-        0% { transform: scale(1); opacity: 0.9; }
-        100% { transform: scale(2.8); opacity: 0; }
-      }
-
-      /* Card hover levitation */
-      .timeline-item .card-soft:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 28px 48px rgba(80, 72, 255, 0.22);
-        transition: all 0.35s ease;
-      }
-
-      /* Connect cards to the line */
-      .timeline-item::before {
-        content: "";
-        position: absolute;
-        top: 28px;
-        width: 60px;
-        height: 2px;
-        background: #d4ceff;
-      }
-
-      .timeline-item.left::before { right: calc(50% - 30px); }
-      .timeline-item.right::before { left: calc(50% - 30px); }
-
-      /* Timeline dots with glowing hover */
-      .timeline-dot {
-        position: absolute;
-        top: 18px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        background: #fff;
-        border: 4px solid #745cff;
-        box-shadow: 0 0 0 6px rgba(116,92,255,0.16);
-      }
-
-      .timeline-dot:hover {
-        transform: translateX(-50%) scale(1.14);
-        box-shadow: 0 0 0 8px rgba(116, 92, 255, 0.18),
-                    0 0 18px rgba(116, 92, 255, 0.55),
-                    0 0 28px rgba(132, 110, 255, 0.45);
-      }
-
-      /* Fade up animation */
-      @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(40px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* Fade-in animation */
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-
-      /* === ADVANCED SCROLL-SEQUENCED ANIMATIONS === */
-      .timeline-item {
-        opacity: 0;
-        transform: translateY(60px);
-        transition: opacity 0.8s ease, transform 0.8s ease;
-      }
-
-      .timeline-item.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* Dot pop animation */
-      .timeline-dot.visible {
-        animation: dotPop 0.5s ease forwards;
-      }
-
-      @keyframes dotPop {
-        0% { transform: translateX(-50%) scale(0.4); opacity: 0; }
-        60% { transform: translateX(-50%) scale(1.2); }
-        100% { transform: translateX(-50%) scale(1); opacity: 1; }
-      }
-
-      /* Vertical line fill animation */
-      .timeline::before {
-        height: 0;
-        animation: lineFill 2.2s ease forwards;
-      }
-
-      @keyframes lineFill {
-        from { height: 0; }
-        to { height: 100%; }
-      }
-
-      /* Glow pulse trail between items */
-      .timeline-item.visible::before {
-        box-shadow: 0 0 12px rgba(116, 92, 255, 0.25);
-        transition: box-shadow 0.5s ease;
-      }
-      /* === FULL PAGE PARALLAX LAYERS === */
-      .parallax-layer {
-        position: fixed;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: -10;
-        background-repeat: no-repeat;
-        background-size: cover;
-        will-change: transform;
-      }
-
-      /* Soft purple blob left */
-      .layer-1 {
-        background: radial-gradient(circle at 20% 30%, rgba(106, 75, 255, 0.28), transparent 65%);
-      }
-
-      /* Blue glow top-right */
-      .layer-2 {
-        background: radial-gradient(circle at 80% 20%, rgba(55, 114, 255, 0.25), transparent 70%);
-      }
-
-      /* Deep violet bottom */
-      .layer-3 {
-        background: radial-gradient(circle at 50% 85%, rgba(92, 66, 255, 0.18), transparent 75%);
-      }
-      /* === SKILLS AUTO-SCROLLING VERTICAL MARQUEE === */
-      .skills-marquee-container {
-        height: 260px;
-        overflow: hidden;
-        position: relative;
-        mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
-      }
-
-      .skills-marquee {
-        display: flex;
-        flex-direction: column;
-        gap: 22px;
-        animation: scrollSkills 12s linear infinite;
-      }
-
-      .skill-item {
-        font-weight: 600;
-        font-size: 16px;
-        color: #4a4a5f;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 12px 16px;
-        border-radius: 14px;
-        background: #ffffff;
-        border: 1px solid #eee;
-        box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-      }
-
-      .skill-item img {
-        width: 28px;
-        height: 28px;
-        object-fit: contain;
-      }
-
-      @keyframes scrollSkills {
-        0%   { transform: translateY(0); }
-        100% { transform: translateY(-50%); }
-      }
-
-      /* Mobile responsive */
-      @media (max-width: 768px) {
-        .timeline {
-          padding-left: 22px;
-        }
-
-        .timeline::before {
-          left: 12px;
-          transform: none;
-        }
-
-        .timeline-item {
-          text-align: left;
-        }
-
-        .timeline-item::before {
-          left: 22px;
-          right: auto;
-          width: 36px;
-        }
-
-        .timeline-item .card-soft {
-          margin-left: 0 !important;
-          margin-right: 0 !important;
-        }
-
-        .timeline-dot {
-          left: 22px;
-          transform: translateX(0);
-        }
-      }
-      .project-card {
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        background: linear-gradient(145deg, #ffffff 0%, #f9f7ff 100%);
-      }
-      .project-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 26px 52px rgba(70, 64, 222, 0.14);
-      }
-      .icon-box {
-        width: 54px;
-        height: 54px;
-        border-radius: 18px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(135deg, #7c5bff, #4f7bff);
-        color: #fff;
-        font-size: 22px;
-        box-shadow: 0 14px 26px rgba(80, 82, 255, 0.25);
-      }
-      .contact-card {
-        border-radius: 18px;
-        border: 1px solid var(--border);
-        padding: 14px;
-        background: #fff;
-      }
-      .footer {
-        border-top: 1px solid var(--border);
-        padding: 22px 0;
-        color: #7c7a8c;
-        background: #f9f8ff;
-      }
-      .badge-light {
-        background: #efeaff;
-        color: var(--primary);
-        border: none;
-      }
-      .stat-divider {
-        width: 100%;
-        max-width: 840px;
-        height: 1px;
-        background: var(--border);
-        margin: 40px auto 30px;
-      }
-    </style>
+    <meta name="description" content="Melody Naorem — Front End Developer & UI Developer with 4+ years of experience in responsive UI, modern JavaScript, React, Bootstrap, and Figma-to-code development.">
+    <meta name="keywords" content="Frontend Developer, UI Developer, React Developer, JavaScript Developer, Figma to HTML, Web Developer, Portfolio">
+    <meta name="author" content="Melody Naorem">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link  href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"/>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="90" tabindex="0">
-    <div class="parallax-layer layer-1"></div>
-    <div class="parallax-layer layer-2"></div>
-    <div class="parallax-layer layer-3"></div>
-    <nav
-      id="mainNav"
-      class="navbar navbar-expand-lg fixed-top bg-white shadow-sm"
-      style="border-bottom: 1px solid var(--border)"
-    >
-      <div class="container">
-        <a class="navbar-brand fw-bold gradient-text" href="#top">Melody.</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
-            <li class="nav-item"><a class="nav-link nav-link-custom" href="#about">About</a></li>
-            <li class="nav-item"><a class="nav-link nav-link-custom" href="#skills">Skills</a></li>
-            <li class="nav-item"><a class="nav-link nav-link-custom" href="#experience">Experience</a></li>
-            <li class="nav-item"><a class="nav-link nav-link-custom" href="#projects">Projects</a></li>
-            <li class="nav-item"><a class="nav-link nav-link-custom" href="#education">Education</a></li>
-            <li class="nav-item"><a class="nav-link nav-link-custom" href="#contact">Contact</a></li>
-            <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-              <a class="btn btn-cta" href="#contact">Let's Talk</a>
-            </li>
-          </ul>
+    <main class="bg-background">
+      <nav id="mainNav" class="navbar fixed-top navbar-expand-lg">
+        <div class="container custom-container">
+          <a class="navbar-brand gradient-text fw-bold" href="#top">Melody.</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav mx-auto gap-lg-3">
+              <li class="nav-item">
+                <a class="nav-link nav-link-custom active" href="#about">About</a>
+              </li>
+              <li class="nav-item"><a class="nav-link nav-link-custom" href="#skills">Skills</a></li>
+              <li class="nav-item"><a class="nav-link nav-link-custom" href="#experience">Experience</a></li>
+              <li class="nav-item"><a class="nav-link nav-link-custom" href="#projects">Projects</a></li>
+              <li class="nav-item"><a class="nav-link nav-link-custom" href="#education">Education</a></li>
+              <li class="nav-item"><a class="nav-link nav-link-custom" href="#contact">Contact</a></li>
+            </ul>
+            <div class="d-block d-lg-block">
+              <a href="#contact" class="btn btn-cta">Let's Talk</a>
+            </div>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
 
-    <!-- Hero -->
+    <!-- HERO -->
     <section id="top" class="section hero">
-      <div class="container hero-content text-center">
+      <div class="container hero-content text-center reveal-on-scroll">
         <div class="d-inline-flex align-items-center gap-2 tag mb-4">
-          <span class="bi bi-circle-fill small"></span>
-          Available for new opportunities
+          <span class="bi bi-circle-fill"></span> Available for new opportunities
         </div>
-        <h1 class="fw-bold mb-3" style="font-size: clamp(40px, 7vw, 66px)">
+        
+        <h1 class="fw-bold mb-3 hero-title">
           Hi, I'm <span class="gradient-text">Melody Naorem</span>
         </h1>
-        <h5 class="fw-semibold text-secondary mb-3" style="color:#4a4a5f !important;">Front End Developer | UI Developer</h5>
-        <p class="text-muted mb-4 d-inline-flex align-items-center gap-2" style="color:#7c7a8c !important;">
+        <h5 class="fw-semibold mb-3 hero-subtitle">
+          Front End Developer | UI Developer
+        </h5>
+        <p class="hero-location mb-4 d-inline-flex align-items-center gap-2">
           <i class="bi bi-geo-alt"></i> Bengaluru, Karnataka
         </p>
-        <p class="text-muted fs-5 mb-4 mx-auto" style="max-width: 820px; color:#6f6d82 !important;">
-          Frontend developer with 4+ years of experience building responsive, user-friendly web interfaces and converting
-          Figma designs into pixel-perfect code.
+        <p class="hero-text mb-4 mx-auto">
+          Frontend developer with 4 years of experience building responsive, user-friendly
+          web interfaces and converting Figma designs into pixel-perfect code.
         </p>
         <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
           <a class="btn btn-cta d-inline-flex align-items-center gap-2" href="./melody-naorem-resume.pdf" download>
@@ -558,88 +73,99 @@
             <i class="bi bi-envelope"></i> Contact Me
           </a>
         </div>
+
         <div class="stat-divider"></div>
-        <div class="row g-3 justify-content-center">
+
+        <div class="row g-3 justify-content-center wrapper mx-auto">
           <div class="col-6 col-md-3">
-            <div class="card-soft text-center">
-              <div class="h3 fw-bold gradient-text mb-2">4+</div>
+            <div class="text-center reveal-on-scroll">
+              <div class="h3 fw-bold gradient-text mb-2">4</div>
               <div class="small text-muted">Years Experience</div>
             </div>
           </div>
           <div class="col-6 col-md-3">
-            <div class="card-soft text-center">
+            <div class="text-center reveal-on-scroll">
               <div class="h3 fw-bold gradient-text mb-2">10+</div>
               <div class="small text-muted">Projects Completed</div>
             </div>
           </div>
           <div class="col-6 col-md-3">
-            <div class="card-soft text-center">
-              <div class="h3 fw-bold gradient-text mb-2">15+</div>
+            <div class="text-center reveal-on-scroll">
+              <div class="h3 fw-bold gradient-text mb-2">10+</div>
               <div class="small text-muted">Technologies</div>
             </div>
           </div>
-          <div class="col-6 col-md-3">
-            <div class="card-soft text-center">
-              <div class="h3 fw-bold gradient-text mb-2">100%</div>
-              <div class="small text-muted">Client Satisfaction</div>
-            </div>
-          </div>
         </div>
+        <div class="floating-orb d-none d-md-block"></div>
       </div>
     </section>
 
-    <!-- About -->
+    <!-- ABOUT -->
     <section id="about" class="section">
       <div class="container">
-        <div class="section-heading">
+        <div class="section-heading text-center reveal-on-scroll">
           <div class="eyebrow">About Me</div>
           <h2>
             Passionate About Creating <br />
             <span class="gradient-text">Beautiful Web Experiences</span>
           </h2>
         </div>
+
         <div class="row g-4 align-items-center">
-          <div class="col-lg-6">
-            <p class="text-muted fs-5">
-              I'm a Frontend Developer with <strong class="text-dark">4+ years of experience</strong> in building responsive
-              websites, UI development, and Figma-to-code conversion. I'm passionate about improving user experience and creating intuitive interfaces.
+          <div class="col-lg-6 reveal-on-scroll pr-40">
+            <p class="text-muted details">
+              I'm a Frontend Developer with <strong class="text-dark">4 years of experience</strong>
+              in building responsive websites, UI development, and Figma-to-code conversion. I'm
+              passionate about improving user experience and creating intuitive interfaces.
             </p>
-            <p class="text-muted fs-5">
-              Throughout my career, I've worked on diverse platforms including <strong>e-learning systems</strong>,
-              <strong>real estate platforms</strong>, and <strong>service portals</strong>. I specialize in React, JavaScript, TypeScript, and modern frontend workflows.
+            <p class="text-muted details">
+              Throughout my career, I've worked on diverse platforms including
+              <strong>e-learning systems</strong>, <strong>real estate platforms</strong>, and
+              <strong>service portals</strong>. I specialize in React, JavaScript, TypeScript, and
+              modern frontend workflows.
             </p>
-            <p class="text-muted fs-5">
-              I believe in writing clean, maintainable code and collaborating closely with designers and backend developers to deliver exceptional digital products.
+            <p class="text-muted details">
+              I believe in writing clean, maintainable code and collaborating closely with designers
+              and backend developers to deliver exceptional digital products.
             </p>
           </div>
+
           <div class="col-lg-6">
             <div class="row g-3">
-              <div class="col-6">
-                <div class="card-soft text-start h-100">
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="card-soft text-start h-100 reveal-on-scroll">
                   <div class="icon-box mb-3"><i class="bi bi-code-slash"></i></div>
-                  <h6 class="fw-bold">Clean Code</h6>
-                  <p class="text-muted small mb-0">Writing maintainable, scalable code following best practices</p>
+                  <h6>Clean Code</h6>
+                  <p class="text-muted small mb-0">
+                    Writing maintainable, scalable code following best practices
+                  </p>
                 </div>
               </div>
-              <div class="col-6">
-                <div class="card-soft text-start h-100">
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="card-soft text-start h-100 reveal-on-scroll">
                   <div class="icon-box mb-3"><i class="bi bi-palette"></i></div>
-                  <h6 class="fw-bold">Pixel Perfect</h6>
-                  <p class="text-muted small mb-0">Converting Figma designs into flawless web interfaces</p>
+                  <h6>Pixel Perfect</h6>
+                  <p class="text-muted small mb-0">
+                    Converting Figma designs into flawless web interfaces
+                  </p>
                 </div>
               </div>
-              <div class="col-6">
-                <div class="card-soft text-start h-100">
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="card-soft text-start h-100 reveal-on-scroll">
                   <div class="icon-box mb-3"><i class="bi bi-lightning-charge"></i></div>
-                  <h6 class="fw-bold">Performance</h6>
-                  <p class="text-muted small mb-0">Optimizing for speed and excellent user experience</p>
+                  <h6>Performance</h6>
+                  <p class="text-muted small mb-0">
+                    Optimizing for speed and excellent user experience
+                  </p>
                 </div>
               </div>
-              <div class="col-6">
-                <div class="card-soft text-start h-100">
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="card-soft text-start h-100 reveal-on-scroll">
                   <div class="icon-box mb-3"><i class="bi bi-people"></i></div>
-                  <h6 class="fw-bold">Collaboration</h6>
-                  <p class="text-muted small mb-0">Working effectively with designers and backend teams</p>
+                  <h6>Collaboration</h6>
+                  <p class="text-muted small mb-0">
+                    Working effectively with designers and backend teams
+                  </p>
                 </div>
               </div>
             </div>
@@ -648,46 +174,53 @@
       </div>
     </section>
 
-    <!-- Skills -->
+    <!-- SKILLS -->
     <section id="skills" class="section">
       <div class="container">
-        <div class="section-heading">
+        <div class="section-heading text-center reveal-on-scroll mb-40">
           <div class="eyebrow">My Skills</div>
           <h2>
-            Technologies & Tools <br />
+            Technologies &amp; Tools <br />
             <span class="gradient-text">I Work With</span>
           </h2>
           <p>A comprehensive toolkit built over 4+ years of frontend development experience</p>
         </div>
-        <!-- AUTO-SCROLLING TECHNOLOGY MARQUEE -->
-        <div class="skills-marquee-container">
-          <div class="skills-marquee">
 
-            <div class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/919/919851.png"> React.js</div>
-            <div class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968381.png"> TypeScript</div>
-            <div class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png"> ES6</div>
-            <div class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/1216/1216733.png"> HTML5</div>
-            <div class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968242.png"> CSS3</div>
-            <div class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968672.png"> Bootstrap 5</div>
-            <div class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png"> JavaScript</div>
-            <div class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/545/545674.png"> jQuery</div>
-            <div class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/949/949413.png"> APIs</div>
-            <div class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/1051/1051326.png"> Axios</div>
-            <div class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/732/732212.png"> JSON</div>
-            <div class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/615/615075.png"> AJAX</div>
-            <div class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png"> REST APIs</div>
-            <div class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968520.png"> Git</div>
-            <div class="skill-item"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png"> Figma</div>
+        <div class="section-heading text-center reveal-on-scroll">
+          <h3><span class="gradient-text">Frontend</span> Development</h3>
+        </div>
 
-          </div>
+        <div class="skills-wrapper reveal-on-scroll  mb-40">
+          <span class="skill-pill">React.js</span>
+          <span class="skill-pill">TypeScript</span>
+          <span class="skill-pill">ES6</span>
+          <span class="skill-pill">HTML5</span>
+          <span class="skill-pill">CSS3</span>
+          <span class="skill-pill">Bootstrap</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">jQuery</span>
+          <span class="skill-pill">AJAX</span>
+          <span class="skill-pill">JSON</span>
+          <span class="skill-pill">Axios</span>
+          <span class="skill-pill">APIs</span>
+          <span class="skill-pill">Responsive Design</span>
+          <span class="skill-pill">OOP</span>
+          <span class="skill-pill">Agile</span>
+        </div>
+        <div class="section-heading text-center reveal-on-scroll">
+          <h3><span class="gradient-text">Tools</span> & Others</h3>
+        </div>
+        <div class="skills-wrapper reveal-on-scroll">
+          <span class="skill-pill skill-pill-primary">Git</span>
+          <span class="skill-pill skill-pill-primary">Figma</span>
         </div>
       </div>
     </section>
 
-    <!-- Experience -->
+    <!-- EXPERIENCE -->
     <section id="experience" class="section">
       <div class="container">
-        <div class="section-heading">
+        <div class="section-heading text-center reveal-on-scroll">
           <div class="eyebrow">Career Path</div>
           <h2>
             Professional <br />
@@ -695,115 +228,78 @@
           </h2>
         </div>
 
-        <div class="timeline">
-
-          <!-- Item 1 -->
+        <div class="timeline-wrapper reveal-on-scroll">
           <div class="timeline-item left">
             <span class="timeline-dot"></span>
-            <div class="card-soft">
-              <div class="d-flex flex-wrap gap-2 align-items-center text-muted small mb-2">
-                <i class="bi bi-calendar"></i>
-                <span>Dec 2024 – Present</span>
-              </div>
-              <h5 class="fw-bold mb-1">UI Developer</h5>
-              <div class="text-primary fw-semibold mb-2">The Knowledge Academy</div>
+            <div class="timeline-card">
+              <div class="timeline-date"><i class="bi bi-calendar"></i> Dec 2024 – Present</div>
+              <h5 class="timeline-title">UI Developer</h5>
+              <div class="timeline-company">The Knowledge Academy</div>
 
-              <ul class="text-muted small ps-3 mb-3">
-                <li>Created responsive web interfaces from Figma using HTML, CSS, JS, jQuery</li>
-                <li>Improved UX for Moodle-based e-learning features</li>
+              <ul class="timeline-details">
+                <li>Created responsive interfaces from Figma using HTML, CSS, JS, jQuery</li>
+                <li>Improved UX for Moodle-based e-learning</li>
                 <li>Implemented updates based on user feedback</li>
-                <li>Collaborated closely with UI/UX designers</li>
+                <li>Collaborated with UI/UX designers</li>
                 <li>Managed platform content via HTML Writer</li>
               </ul>
 
-              <div class="d-flex flex-wrap gap-2">
-                <span class="pill">HTML5</span>
-                <span class="pill">CSS</span>
-                <span class="pill">JavaScript</span>
-                <span class="pill">jQuery</span>
-                <span class="pill">Bootstrap 5</span>
+              <div class="timeline-tags">
+                <span>HTML5</span><span>CSS</span><span>JavaScript</span><span>jQuery</span><span>Bootstrap 5</span>
               </div>
             </div>
           </div>
-
-          <!-- Item 2 -->
           <div class="timeline-item right">
             <span class="timeline-dot"></span>
-            <div class="card-soft">
-              <div class="d-flex flex-wrap gap-2 align-items-center text-muted small mb-2">
-                <i class="bi bi-calendar"></i>
-                <span>Sep 2023 – Sep 2024</span>
-              </div>
-              <h5 class="fw-bold mb-1">Frontend Developer</h5>
-              <div class="text-primary fw-semibold mb-2">Realtynow Pvt Ltd</div>
+            <div class="timeline-card">
+              <div class="timeline-date"><i class="bi bi-calendar"></i> Sep 2023 – Sep 2024</div>
+              <h5 class="timeline-title">Frontend Developer</h5>
+              <div class="timeline-company">Realtynow Pvt Ltd</div>
 
-              <ul class="text-muted small ps-3 mb-3">
-                <li>Built responsive interfaces from Figma for a real estate platform</li>
-                <li>Improved UX for property filing, booking & search</li>
-                <li>Ensured design accuracy and responsiveness</li>
+              <ul class="timeline-details">
+                <li>Built responsive interfaces from Figma</li>
+                <li>Improved UX for booking, filing &amp; search</li>
+                <li>Ensured pixel-perfect responsiveness</li>
               </ul>
 
-              <div class="d-flex flex-wrap gap-2">
-                <span class="pill">HTML5</span>
-                <span class="pill">CSS</span>
-                <span class="pill">JavaScript</span>
-                <span class="pill">jQuery</span>
-                <span class="pill">Bootstrap 5</span>
+              <div class="timeline-tags">
+                <span>HTML5</span><span>CSS</span><span>JavaScript</span><span>jQuery</span><span>Bootstrap 5</span>
               </div>
             </div>
           </div>
-
-          <!-- Item 3 -->
           <div class="timeline-item left">
             <span class="timeline-dot"></span>
-            <div class="card-soft">
-              <div class="d-flex flex-wrap gap-2 align-items-center text-muted small mb-2">
-                <i class="bi bi-calendar"></i>
-                <span>Jan 2022 – Sep 2023</span>
-              </div>
-              <h5 class="fw-bold mb-1">Frontend Developer</h5>
-              <div class="text-primary fw-semibold mb-2">Web Digital Mantra</div>
+            <div class="timeline-card">
+              <div class="timeline-date"><i class="bi bi-calendar"></i> Jan 2022 – Sep 2023</div>
+              <h5 class="timeline-title">Frontend Developer</h5>
+              <div class="timeline-company">Web Digital Mantra</div>
 
-              <ul class="text-muted small ps-3 mb-3">
+              <ul class="timeline-details">
                 <li>Built static & dynamic websites</li>
-                <li>Improved UX collaborating with backend team</li>
-                <li>Modified UI based on client feedback</li>
+                <li>Collaborated with backend team</li>
+                <li>Updated UI based on feedback</li>
               </ul>
 
-              <div class="d-flex flex-wrap gap-2">
-                <span class="pill">HTML</span>
-                <span class="pill">CSS</span>
-                <span class="pill">JavaScript</span>
-                <span class="pill">jQuery</span>
-                <span class="pill">Bootstrap 5</span>
+              <div class="timeline-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>jQuery</span><span>Bootstrap 5</span>
               </div>
             </div>
           </div>
-
-          <!-- Item 4 -->
           <div class="timeline-item right">
             <span class="timeline-dot"></span>
-            <div class="card-soft">
-              <div class="d-flex flex-wrap gap-2 align-items-center text-muted small mb-2">
-                <i class="bi bi-calendar"></i>
-                <span>May 2021 – Dec 2021</span>
-              </div>
-              <h5 class="fw-bold mb-1">Frontend Developer</h5>
-              <div class="text-primary fw-semibold mb-2">Infocampus Logics</div>
+            <div class="timeline-card">
+              <div class="timeline-date"><i class="bi bi-calendar"></i> May 2021 – Dec 2021</div>
+              <h5 class="timeline-title">Frontend Developer</h5>
+              <div class="timeline-company">Infocampus Logics</div>
 
-              <ul class="text-muted small ps-3 mb-3">
-                <li>Created features using HTML, CSS, jQuery, React.js, Node.js, APIs</li>
+              <ul class="timeline-details">
+                <li>Created features using HTML, CSS, jQuery, React, Node</li>
                 <li>Built cross-browser compatible websites</li>
-                <li>Followed compliance standards for UI</li>
+                <li>Followed UI compliance standards</li>
               </ul>
 
-              <div class="d-flex flex-wrap gap-2">
-                <span class="pill">HTML</span>
-                <span class="pill">CSS</span>
-                <span class="pill">jQuery</span>
-                <span class="pill">React.js</span>
-                <span class="pill">Node.js</span>
-                <span class="pill">APIs</span>
+              <div class="timeline-tags">
+                <span>HTML</span><span>CSS</span><span>jQuery</span><span>React.js</span><span>Node.js</span><span>APIs</span>
               </div>
             </div>
           </div>
@@ -812,10 +308,10 @@
       </div>
     </section>
 
-    <!-- Projects -->
+    <!-- PROJECTS -->
     <section id="projects" class="section">
       <div class="container">
-        <div class="section-heading">
+        <div class="section-heading text-center reveal-on-scroll">
           <div class="eyebrow">Portfolio</div>
           <h2>
             Featured <br />
@@ -823,206 +319,253 @@
           </h2>
           <p>A selection of projects that showcase my frontend development expertise</p>
         </div>
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-4">
-            <div class="card-soft h-100 project-card">
-              <div class="icon-box mb-3"><i class="bi bi-mortarboard"></i></div>
-              <h5 class="fw-bold">The Knowledge Academy</h5>
-              <div class="text-primary fw-semibold small mb-2">E-Learning LMS Platform</div>
-              <p class="text-muted small">
-                Redesigned dashboards, quizzes, exam timers, course pages, and certificate layouts. Delivered major performance improvements and converted Figma designs into pixel-perfect UI.
-              </p>
-              <div class="mb-3">
-                <span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span
-                ><span class="pill">jQuery</span><span class="pill">Bootstrap</span><span class="pill">Moodle</span
-                ><span class="pill">AJAX</span>
-              </div>
-              <a class="text-primary fw-semibold small" href="https://elearning.theknowledgeacademy.com" target="_blank"
-                >View Details <i class="bi bi-box-arrow-up-right"></i
-              ></a>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card-soft h-100 project-card">
-              <div class="icon-box mb-3"><i class="bi bi-journal-bookmark"></i></div>
-              <h5 class="fw-bold">MPES E-Learning</h5>
-              <div class="text-primary fw-semibold small mb-2">Professional Training LMS</div>
-              <p class="text-muted small">
-                UI overhaul of course pages, dashboards, quizzes, and enrollment pages. Built responsive certificate designs and improved platform performance through CSS/JS optimization.
-              </p>
-              <div class="mb-3">
-                <span class="pill">HTML5</span><span class="pill">CSS3</span><span class="pill">JavaScript</span
-                ><span class="pill">jQuery</span><span class="pill">Bootstrap</span><span class="pill">Moodle</span>
-              </div>
-              <a class="text-primary fw-semibold small" href="https://elearning.mpes.co.uk/" target="_blank"
-                >View Details <i class="bi bi-box-arrow-up-right"></i
-              ></a>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card-soft h-100 project-card">
-              <div class="icon-box mb-3"><i class="bi bi-building"></i></div>
-              <h5 class="fw-bold">Oakwood International</h5>
-              <div class="text-primary fw-semibold small mb-2">Corporate Training LMS</div>
-              <p class="text-muted small">
-                Redesigned course structure UI, sidebar navigation, dashboards, and quiz layout. Implemented exam timer UI and ensured cross-browser compatibility.
-              </p>
-              <div class="mb-3">
-                <span class="pill">HTML5</span><span class="pill">CSS</span><span class="pill">JavaScript</span
-                ><span class="pill">jQuery</span><span class="pill">AJAX</span><span class="pill">Bootstrap</span>
-              </div>
-              <a class="text-primary fw-semibold small" href="https://lms.oakwoodinternational.co.uk/" target="_blank"
-                >View Details <i class="bi bi-box-arrow-up-right"></i
-              ></a>
-            </div>
-          </div>
 
-          <div class="col-md-6 col-lg-4">
-            <div class="card-soft h-100 project-card">
-              <div class="icon-box mb-3"><i class="bi bi-award"></i></div>
-              <h5 class="fw-bold">Global Certification Board</h5>
-              <div class="text-primary fw-semibold small mb-2">Online Examination System</div>
-              <p class="text-muted small">
-                Designed exam-taking interface, question navigation, and timer UI. Improved accessibility, responsiveness, and enhanced certificate page layout.
-              </p>
-              <div class="mb-3">
-                <span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span
-                ><span class="pill">jQuery</span><span class="pill">Bootstrap</span><span class="pill">Moodle</span>
-              </div>
-              <a class="text-primary fw-semibold small" href="https://exam.globalcertificationboard.com/" target="_blank"
-                >View Details <i class="bi bi-box-arrow-up-right"></i
-              ></a>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card-soft h-100 project-card">
-              <div class="icon-box mb-3"><i class="bi bi-airplane"></i></div>
-              <h5 class="fw-bold">Docomo Holidays</h5>
-              <div class="text-primary fw-semibold small mb-2">Travel & Holiday Booking Platform</div>
-              <p class="text-muted small">
-                Designed and built the entire UI for holiday packages, cruise listings, hotel pages, and booking workflows with interactive components.
-              </p>
-              <div class="mb-3">
-                <span class="pill">HTML5</span><span class="pill">CSS3</span><span class="pill">Bootstrap</span
-                ><span class="pill">JavaScript</span><span class="pill">jQuery</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card-soft h-100 project-card">
-              <div class="icon-box mb-3"><i class="bi bi-file-earmark-text"></i></div>
-              <h5 class="fw-bold">24 Efiling</h5>
-              <div class="text-primary fw-semibold small mb-2">Tax & Compliance Platform</div>
-              <p class="text-muted small">
-                Built user-facing website UI and admin panel for managing users & service requests. Collaborated with PM & clients for continuous improvements.
-              </p>
-              <div class="mb-3">
-                <span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span
-                ><span class="pill">jQuery</span><span class="pill">Bootstrap</span>
-              </div>
-              <a class="text-primary fw-semibold small" href="https://24efiling.com" target="_blank"
-                >View Details <i class="bi bi-box-arrow-up-right"></i
-              ></a>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card-soft h-100 project-card">
-              <div class="icon-box mb-3"><i class="bi bi-house-door"></i></div>
-              <h5 class="fw-bold">RealtyNow</h5>
-              <div class="text-primary fw-semibold small mb-2">Real Estate Platform</div>
-              <p class="text-muted small">
-                Developed responsive UI for property listings, search filters, and booking forms. Optimized performance and ensured cross-device compatibility.
-              </p>
-              <div class="mb-3">
-                <span class="pill">HTML5</span><span class="pill">CSS3</span><span class="pill">JavaScript</span
-                ><span class="pill">jQuery</span><span class="pill">Bootstrap</span>
-              </div>
-              <a class="text-primary fw-semibold small" href="https://realtynow.in/" target="_blank"
-                >View Details <i class="bi bi-box-arrow-up-right"></i
-              ></a>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4">
-            <div class="card-soft h-100 project-card">
-              <div class="icon-box mb-3"><i class="bi bi-car-front"></i></div>
-              <h5 class="fw-bold">MyDriver</h5>
-              <div class="text-primary fw-semibold small mb-2">Driver Booking & Fleet Management</div>
-              <p class="text-muted small">
-                Built admin UI screens for driver management, customer records, and booking workflows. Designed responsive dashboards with metrics and charts.
-              </p>
-              <div class="mb-3">
-                <span class="pill">HTML5</span><span class="pill">CSS3</span><span class="pill">Bootstrap 5</span
-                ><span class="pill">JavaScript</span><span class="pill">jQuery</span><span class="pill">AJAX</span>
-              </div>
-              <a class="text-primary fw-semibold small" href="https://mydriver.co.in/" target="_blank"
-                >View Details <i class="bi bi-box-arrow-up-right"></i
-              ></a>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card-soft h-100 project-card">
-              <div class="icon-box mb-3"><i class="bi bi-heart"></i></div>
-              <h5 class="fw-bold">Happy U</h5>
-              <div class="text-primary fw-semibold small mb-2">Health Booking & Consultation Hub</div>
-              <p class="text-muted small">
-                Developed responsive UI with performance optimization. Supported SEO implementation and backend integration for seamless user experience.
-              </p>
-              <div class="mb-3">
-                <span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span
-                ><span class="pill">jQuery</span><span class="pill">Bootstrap</span>
-              </div>
-              <a class="text-primary fw-semibold small" href="https://happyu.co.in/" target="_blank"
-                >View Details <i class="bi bi-box-arrow-up-right"></i
-              ></a>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card-soft h-100 project-card">
-              <div class="icon-box mb-3"><i class="bi bi-building-gear"></i></div>
-              <h5 class="fw-bold">Prakash Enterprises</h5>
-              <div class="text-primary fw-semibold small mb-2">Industrial Supplier Website</div>
-              <p class="text-muted small">
-                Built responsive pages with interactive components. Ensured mobile-friendly layouts using media queries for optimal viewing across devices.
-              </p>
-              <div class="mb-3">
-                <span class="pill">HTML5</span><span class="pill">CSS</span><span class="pill">Bootstrap</span
-                ><span class="pill">JavaScript</span><span class="pill">jQuery</span>
-              </div>
-            </div>
-          </div>
+        <div class="projects-grid">
+     
+      <article class="project-card reveal-on-scroll">
+        <div class="project-icon">
+          <i class="bi bi-mortarboard-fill"></i>
         </div>
+        <h5 class="project-title">The Knowledge Academy</h5>
+        <p class="project-subtitle">E-Learning LMS Platform</p>
+        <p class="project-description">
+          Redesigned dashboards, quizzes, exam timers, course pages and certificate layouts.
+          Delivered major performance improvements and converted Figma designs into pixel-perfect UI.
+        </p>
+        <div class="project-tags">
+          <span class="pill">HTML</span>
+          <span class="pill">CSS</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">jQuery</span>
+          <span class="pill">Bootstrap</span>
+        </div>
+        <a
+          href="https://elearning.theknowledgeacademy.com"
+          target="_blank"
+          class="project-link"
+        >
+          View Details <i class="bi bi-box-arrow-up-right"></i>
+        </a>
+      </article>
+
+      
+      <article class="project-card reveal-on-scroll">
+        <div class="project-icon">
+          <i class="bi bi-book-half"></i>
+        </div>
+        <h5 class="project-title">MPES E-Learning</h5>
+        <p class="project-subtitle">Professional Training LMS</p>
+        <p class="project-description">
+          UI overhaul of course pages, dashboards, quizzes and enrollment flows. Created new
+          certificate layouts and improved performance with CSS/JS optimizations.
+        </p>
+        <div class="project-tags">
+          <span class="pill">HTML5</span>
+          <span class="pill">CSS3</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">jQuery</span>
+          <span class="pill">Bootstrap</span>
+        </div>
+        <a href="https://elearning.mpes.co.uk/" target="_blank" class="project-link">
+          View Details <i class="bi bi-box-arrow-up-right"></i>
+        </a>
+      </article>
+
+      
+      <article class="project-card reveal-on-scroll">
+        <div class="project-icon">
+          <i class="bi bi-building"></i>
+        </div>
+        <h5 class="project-title">Oakwood International</h5>
+        <p class="project-subtitle">Corporate Training LMS</p>
+        <p class="project-description">
+          Redesigned course structure UI, sidebar navigation, dashboards and quiz layouts.
+          Implemented exam timer UI and ensured cross-browser compatibility.
+        </p>
+        <div class="project-tags">
+          <span class="pill">HTML5</span>
+          <span class="pill">CSS</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">jQuery</span>
+          <span class="pill">Bootstrap</span>
+        </div>
+        <a href="https://lms.oakwoodinternational.co.uk/" target="_blank" class="project-link">
+          View Details <i class="bi bi-box-arrow-up-right"></i>
+        </a>
+      </article>
+
+     
+      <article class="project-card reveal-on-scroll">
+        <div class="project-icon">
+          <i class="bi bi-award-fill"></i>
+        </div>
+        <h5 class="project-title">Global Certification Board</h5>
+        <p class="project-subtitle">Online Examination System</p>
+        <p class="project-description">
+          Designed exam-taking interface, question navigation, timer UI and certificate pages with
+          improved accessibility and responsiveness.
+        </p>
+        <div class="project-tags">
+          <span class="pill">HTML</span>
+          <span class="pill">CSS</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">jQuery</span>
+          <span class="pill">Bootstrap</span>
+          <span class="pill">Moodle</span>
+        </div>
+        <a href="https://exam.globalcertificationboard.com/" target="_blank" class="project-link">
+          View Details <i class="bi bi-box-arrow-up-right"></i>
+        </a>
+      </article>
+
+     
+      <article class="project-card reveal-on-scroll">
+        <div class="project-icon">
+          <i class="bi bi-file-earmark-text-fill"></i>
+        </div>
+        <h5 class="project-title">24 Efiling</h5>
+        <p class="project-subtitle">Tax &amp; Compliance Platform</p>
+        <p class="project-description">
+          Built user-facing website UI and admin panel for managing users and requests. Delivered
+          responsive layouts with accessible forms and dashboards.
+        </p>
+        <div class="project-tags">
+          <span class="pill">HTML</span>
+          <span class="pill">CSS</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">jQuery</span>
+          <span class="pill">Bootstrap</span>
+        </div>
+        <a href="https://24efiling.com" target="_blank" class="project-link">
+          View Details <i class="bi bi-box-arrow-up-right"></i>
+        </a>
+      </article>
+
+      
+      <article class="project-card reveal-on-scroll">
+        <div class="project-icon">
+          <i class="bi bi-house-door-fill"></i>
+        </div>
+        <h5 class="project-title">RealtyNow</h5>
+        <p class="project-subtitle">Real Estate Platform</p>
+        <p class="project-description">
+          Developed responsive UI for property listings, search filters and booking forms.
+          Optimized performance and ensured cross-device compatibility.
+        </p>
+        <div class="project-tags">
+          <span class="pill">HTML5</span>
+          <span class="pill">CSS3</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">jQuery</span>
+          <span class="pill">Bootstrap</span>
+        </div>
+        <a href="https://realtynow.in/" target="_blank" class="project-link">
+          View Details <i class="bi bi-box-arrow-up-right"></i>
+        </a>
+      </article>
+
+      
+      <article class="project-card reveal-on-scroll">
+        <div class="project-icon">
+          <i class="bi bi-heart-fill"></i>
+        </div>
+        <h5 class="project-title">Happy U</h5>
+        <p class="project-subtitle">Health Booking &amp; Consultation Hub</p>
+        <p class="project-description">
+          Developed responsive UI with performance optimization, SEO support and seamless backend
+          integration for a health-booking portal.
+        </p>
+        <div class="project-tags">
+          <span class="pill">HTML</span>
+          <span class="pill">CSS</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">jQuery</span>
+          <span class="pill">Bootstrap</span>
+        </div>
+        <a href="https://happyu.co.in/" target="_blank" class="project-link">
+          View Details <i class="bi bi-box-arrow-up-right"></i>
+        </a>
+      </article>
+
+      <!-- Card 8 -->
+      <article class="project-card reveal-on-scroll">
+        <div class="project-icon">
+          <i class="bi bi-car-front-fill"></i>
+        </div>
+        <h5 class="project-title">MyDriver</h5>
+        <p class="project-subtitle">Driver Booking &amp; Fleet Management</p>
+        <p class="project-description">
+          Designed dashboards and booking workflows for driver management. Built responsive admin
+          screens with clear metrics.
+        </p>
+        <div class="project-tags">
+          <span class="pill">HTML5</span>
+          <span class="pill">CSS3</span>
+          <span class="pill">Bootstrap 5</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">jQuery</span>
+          <span class="pill">AJAX</span>
+        </div>
+        <a href="https://mydriver.co.in/" target="_blank" class="project-link">
+          View Details <i class="bi bi-box-arrow-up-right"></i>
+        </a>
+      </article>
+
+      <article class="project-card reveal-on-scroll">
+        <div class="project-icon">
+          <i class="bi bi-airplane-fill"></i>
+        </div>
+        <h5 class="project-title">Docomo Holidays</h5>
+        <p class="project-subtitle">Travel &amp; Holiday Booking Platform</p>
+        <p class="project-description">
+          Designed and built UI for holiday packages, hotel pages and booking flows with interactive
+          components and strong visual hierarchy.
+        </p>
+        <div class="project-tags">
+          <span class="pill">HTML5</span>
+          <span class="pill">CSS3</span>
+          <span class="pill">Bootstrap</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">jQuery</span>
+        </div>
+        
+      </article>
+    </div>
       </div>
     </section>
 
-    <!-- Education -->
+    <!-- EDUCATION -->
     <section id="education" class="section">
       <div class="container">
-        <div class="section-heading">
+        <div class="section-heading text-center reveal-on-scroll">
           <div class="eyebrow">Education</div>
           <h2>
             Academic <br />
             <span class="gradient-text">Background</span>
           </h2>
         </div>
-        <div class="card-soft text-center mx-auto" style="max-width: 640px">
-          <div class="icon-box mb-3"><i class="bi bi-mortarboard-fill"></i></div>
+        <div class="card-soft text-center mx-auto reveal-on-scroll">
+          <div class="d-flex justify-content-center">
+            <div class="icon-box mb-3"><i class="bi bi-mortarboard-fill"></i></div>
+          </div>
           <h5 class="fw-bold">Bachelor of Engineering (B.E)</h5>
-          <a class="text-primary fw-semibold d-block mb-2" href="#">Alva's Institute of Engineering & Technology</a>
+          <p class="college-name">Alva's Institute of Engineering & Technology</p>
           <p class="text-muted mb-1">Mangalore, Karnataka</p>
           <div class="text-muted small mb-3 d-inline-flex align-items-center gap-2">
             <i class="bi bi-calendar"></i> 2017 – 2021
           </div>
           <hr />
-          <p class="text-muted mb-0"><strong class="text-dark">University:</strong> Visvesvaraya Technological University (VTU), Belgaum</p>
+          <p class="text-muted mb-0">
+            <strong class="text-dark">University:</strong> Visvesvaraya Technological University (VTU), Belgaum
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- CONTACT -->
     <section id="contact" class="section">
       <div class="container">
-        <div class="section-heading">
+        <div class="section-heading text-center reveal-on-scroll mb-40">
           <div class="eyebrow">Get In Touch</div>
           <h2>
             Let's Work <br />
@@ -1030,55 +573,85 @@
           </h2>
           <p>Have a project in mind? I'd love to hear about it. Feel free to reach out!</p>
         </div>
+
         <div class="row g-4 align-items-start">
           <div class="col-lg-5">
-            <div class="contact-card mb-3 d-flex align-items-center gap-3">
-              <div class="icon-box" style="width: 46px; height: 46px"><i class="bi bi-envelope"></i></div>
+            <h3 class="text-2xl font-bold mb-8">Contact Information</h3>
+            <div class="contact-card mb-3 d-flex align-items-center gap-3 reveal-on-scroll">
+              <div class="icon-box icon-small"><i class="bi bi-envelope"></i></div>
               <div>
                 <p class="mb-0 text-muted small">Email</p>
                 <a class="fw-semibold" href="mailto:melodynaorem11@gmail.com">melodynaorem11@gmail.com</a>
               </div>
             </div>
-            <div class="contact-card mb-3 d-flex align-items-center gap-3">
-              <div class="icon-box" style="width: 46px; height: 46px"><i class="bi bi-telephone"></i></div>
+            <div class="contact-card mb-3 d-flex align-items-center gap-3 reveal-on-scroll">
+              <div class="icon-box icon-small"><i class="bi bi-telephone"></i></div>
               <div>
                 <p class="mb-0 text-muted small">Phone</p>
                 <a class="fw-semibold" href="tel:+919366207742">+91 9366207742</a>
               </div>
             </div>
-            <div class="contact-card mb-3 d-flex align-items-center gap-3">
-              <div class="icon-box" style="width: 46px; height: 46px"><i class="bi bi-geo-alt"></i></div>
+            <div class="contact-card mb-3 d-flex align-items-center gap-3 reveal-on-scroll">
+              <div class="icon-box icon-small"><i class="bi bi-geo-alt"></i></div>
               <div>
                 <p class="mb-0 text-muted small">Location</p>
                 <span class="fw-semibold">Bengaluru, Karnataka</span>
               </div>
             </div>
-            <div class="d-flex align-items-center gap-2 text-muted mt-3">
+            <div class="d-flex align-items-center gap-2 text-muted mt-3 reveal-on-scroll">
               <i class="bi bi-check-circle text-primary"></i> Currently available for new opportunities
             </div>
           </div>
-          <div class="col-lg-7">
-            <div class="card-soft">
+
+          <div class="col-lg-7 pl-130">
+            <div class="card-soft reveal-on-scroll">
               <form id="contactForm">
                 <div class="row g-3">
                   <div class="col-md-6">
-                    <label class="form-label fw-semibold">Name</label>
-                    <input type="text" class="form-control form-control-lg" name="name" required placeholder="Your name" />
+                    <label class="form-label">Name</label>
+                    <input
+                      type="text"
+                      class="form-control form-control-lg"
+                      name="name"
+                      required
+                      placeholder="Your name"
+                    />
                   </div>
                   <div class="col-md-6">
-                    <label class="form-label fw-semibold">Email</label>
-                    <input type="email" class="form-control form-control-lg" name="email" required placeholder="your@email.com" />
+                    <label class="form-label">Email</label>
+                    <input
+                      type="email"
+                      class="form-control form-control-lg"
+                      name="email"
+                      required
+                      placeholder="your@email.com"
+                    />
                   </div>
                   <div class="col-12">
-                    <label class="form-label fw-semibold">Subject</label>
-                    <input type="text" class="form-control form-control-lg" name="subject" required placeholder="What's this about?" />
+                    <label class="form-label">Subject</label>
+                    <input
+                      type="text"
+                      class="form-control form-control-lg"
+                      name="subject"
+                      required
+                      placeholder="What's this about?"
+                    />
                   </div>
                   <div class="col-12">
-                    <label class="form-label fw-semibold">Message</label>
-                    <textarea class="form-control" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
+                    <label class="form-label">Message</label>
+                    <textarea
+                      class="form-control"
+                      name="message"
+                      rows="5"
+                      required
+                      placeholder="Tell me about your project..."
+                    ></textarea>
                   </div>
                   <div class="col-12">
-                    <button class="btn btn-cta w-100 d-flex align-items-center justify-content-center gap-2" type="submit">
+                    <button
+                      class="btn btn-cta w-100 d-flex align-items-center justify-content-center gap-2"
+                      type="submit"
+                    >
                       Send Message <i class="bi bi-send"></i>
                     </button>
                   </div>
@@ -1090,90 +663,18 @@
       </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="footer">
-      <div class="container d-flex flex-column flex-sm-row align-items-center justify-content-between">
-        <a class="fw-bold gradient-text" href="#top">Melody</a>
-         <div class="d-flex gap-3 small">
-          <a href="#about" class="text-muted text-decoration-none">About</a>
-          <a href="#projects" class="text-muted text-decoration-none">Projects</a>
-          <a href="#contact" class="text-muted text-decoration-none">Contact</a>
-        </div>
+      <div class="container d-flex flex-column flex-sm-row align-items-center justify-content-center">
+        <small class="text-muted mt-2 mt-sm-0 text-center">
+          © <span id="year"></span> Melody Naorem. All rights reserved.
+        </small>
       </div>
     </footer>
-
+    </main>
+    
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      // Smooth scroll + active link handling
-      $(function () {
-        const navLinks = $(".nav-link-custom");
-        navLinks.on("click", function (e) {
-          e.preventDefault();
-          const target = $(this).attr("href");
-          const el = $(target);
-          if (el.length) {
-            $("html, body").animate({ scrollTop: el.offset().top - 80 }, 400);
-          }
-        });
-
-        $(window).on("scroll", function () {
-          const fromTop = $(this).scrollTop() + 100;
-          navLinks.removeClass("active");
-          navLinks.each(function () {
-            const target = $($(this).attr("href"));
-            if (target.length && target.offset().top <= fromTop) {
-              $(this).addClass("active");
-            }
-          });
-        });
-
-        // Contact form -> WhatsApp redirect
-        $("#contactForm").on("submit", function (e) {
-          e.preventDefault();
-          const data = $(this).serializeArray().reduce((acc, cur) => ({ ...acc, [cur.name]: cur.value }), {});
-          const msg = `New Portfolio Enquiry:%0A%0AName: ${data.name}%0AEmail: ${data.email}%0ASubject: ${data.subject}%0AMessage: ${data.message}`;
-          const url = `https://wa.me/919366207742?text=${msg}`;
-          window.location.href = url;
-        });
-
-        $("#year").text(new Date().getFullYear());
-      });
-
-      /* === ADVANCED SCROLL SEQUENCING === */
-      document.addEventListener("DOMContentLoaded", () => {
-        const items = document.querySelectorAll(".timeline-item");
-        const dots = document.querySelectorAll(".timeline-dot");
-
-        const observer = new IntersectionObserver(
-          entries => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-              }
-            });
-          },
-          { threshold: 0.3 }
-        );
-
-        items.forEach(item => observer.observe(item));
-        dots.forEach(dot => observer.observe(dot));
-      });
-      // Smooth scrolling feel (inertia-like)
-      if ("scrollBehavior" in document.documentElement.style) {
-        document.documentElement.style.scrollBehavior = "smooth";
-      }
-      /* === PARALLAX SCROLL MOVEMENT === */
-      window.addEventListener("scroll", () => {
-        const scrolled = window.scrollY;
-
-        document.querySelector(".layer-1").style.transform = `translateY(${scrolled * 0.25}px)`;
-        document.querySelector(".layer-2").style.transform = `translateY(${scrolled * 0.15}px)`;
-        document.querySelector(".layer-3").style.transform = `translateY(${scrolled * 0.35}px)`;
-      });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
   </body>
 </html>
